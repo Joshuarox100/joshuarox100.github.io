@@ -36,7 +36,7 @@
 		
 		function showContent(type) {
 		  $.each(content, function(i, v){
-			$('div[data-menu-content='+$(v)+']').hide();
+			$('div[data-menu-content='+v+']').hide();
 		  });
 		  $('div[data-menu-content='+type+']').show();
 		}
