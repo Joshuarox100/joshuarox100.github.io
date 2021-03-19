@@ -1,40 +1,30 @@
 <html lang="en">
-	<script>
-	function includeHTML() {
-	  var z, i, elmnt, file, xhttp;
-	  /*loop through a collection of all HTML elements:*/
-	  z = document.getElementsByTagName("*");
-	  for (i = 0; i < z.length; i++) {
-		elmnt = z[i];
-		/*search for elements with a certain atrribute:*/
-		file = elmnt.getAttribute("w3-include-html");
-		if (file) {
-		  /*make an HTTP request using the attribute value as the file name:*/
-		  xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4) {
-			  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-			  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-			  /*remove the attribute, and call this function once more:*/
-			  elmnt.removeAttribute("w3-include-html");
-			  includeHTML();
-			}
-		  }      
-		  xhttp.open("GET", file, true);
-		  xhttp.send();
-		  /*exit the function:*/
-		  return;
-		}
-	  }
-	};
-	</script>
+	<script src="/scripts/includes.js"></script>
 	<head>
-		<div w3-include-html="sections/meta.html"></div>
+		<div w3-include-html="/sections/meta.html"></div>
 		<title>Home</title>
 	</head>
 	<body bgcolor="#000000">
-		<div w3-include-html="sections/header.html"></div>
-		<div w3-include-html="sections/nav.html"></div>
+		<div w3-include-html="/sections/header.html"></div>
+		
+		<nav>
+			<ul>
+				<li><a class="active" href="/index.html">Home</a></li
+				><li><a href="/about.html">About</a></li
+				><li><a href="/projects/projects.html">Projects</a></li
+				><li><a href="/contact.html">Contact</a></li>
+				<li class="dropdown" style="width:55px;padding:0px;float:right;">
+				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
+				<div class="dropdown-content">
+				<ul>
+				<a class="dropdown-content" href="https://twitter.com/Joshuarox100" target="_blank"><img src="/images/twitter.png" alt="Twitter" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+				<a class="dropdown-content" href="https://www.twitch.tv/joshuarox100hd" target="_blank"><img src="/images/twitch.png" alt="Twitch" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+				<a class="dropdown-content" href="https://www.youtube.com/user/Joshuarox100" target="_blank"><img src="/images/youtube.png" alt="YouTube" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+				</ul>
+				</div>
+				</li>
+			</ul>
+		</nav>
 		
 		<section style="z-index:0">
 			<br>
@@ -77,7 +67,7 @@
 			<div class="clearfix"></div>
 		</section>
 		
-		<div w3-include-html="sections/footer.html"></div>
+		<div w3-include-html="/sections/footer.html"></div>
 		
 		<script>
 		includeHTML();
