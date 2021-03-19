@@ -25,7 +25,7 @@
 		</script>
 	</head>
 	<script>
-		var $content = [];
+		var content = [];
 		$(document).ready(function(){
 			var getChild = $("#menu-content").children();
 			getChild.each(function(i,v){
@@ -35,7 +35,7 @@
 		});
 		
 		function showContent(type) {
-		  $content.each(function(i, v){
+		  content.each(function(i, v){
 			$('div[data-menu-content='+$(v)+']').hide();
 		  });
 		  $('div[data-menu-content='+type+']').show();
