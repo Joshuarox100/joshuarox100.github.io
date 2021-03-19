@@ -38,7 +38,7 @@
 			$('div[data-menu-content='+v+']').hide();
 			if (v == type && !$('li[data-menu-content='+v+']').hasClass("active"))
 				$('li[data-menu-content='+v+']').addClass("active");
-			else if ($('li[data-menu-content='+v+']').hasClass("active"))
+			else if (v != type && $('li[data-menu-content='+v+']').hasClass("active"))
 				$('li[data-menu-content='+v+']').removeClass("active");
 		  });
 		  $('div[data-menu-content='+type+']').show();
