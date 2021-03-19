@@ -14,13 +14,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
-			var $content = $('.menu-content');
-
-			function showContent(type) {
-			  $('div', $content).hide();
-			  $('div[data-menu-content='+type+']').show();
-			}
-
 			$('.menu').on('click', '.menu-btn', function(e) {
 			  console.log(e.currentTarget.hash.slice(1));
 			  showContent(e.currentTarget.hash.slice(1));
@@ -32,6 +25,14 @@
 		});
 		</script>
 	</head>
+	<script>
+		var $content = $('.menu-content');
+
+		function showContent(type) {
+		  $('div', $content).hide();
+		  $('div[data-menu-content='+type+']').show();
+		}
+	</script>
 	<body bgcolor="#000000">
 		<div w3-include-html="/sections/header.html"></div>
 		
