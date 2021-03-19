@@ -1,21 +1,38 @@
 <html lang="en">
 	<script src="/scripts/includes.js"></script>
 	<head>
-		<script src="/scripts/jquery.min.js"></script>
-		<script src="/scripts/content.js"></script>
-		<div w3-include-html="/sections/meta.html"></div>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="personal, Unity shaders, downloads, information, Joshuarox100, JoshuaB57">
+		<meta name="description" content="Personal site with some of my projects and info">
+		<meta name="author" content="Joshuarox100">
 		<title>Home</title>
+		<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet'>
+		<link rel="stylesheet" href="/styles.css">
+		<link rel="icon" href="/images/avatar.png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
-	
+	<script>
+	  $('nav li').click(function() {
+		  $.ajax({
+			type: 'GET',
+			url: '/content/'+$(this).data('content')+'.html',
+			dataType: 'html',
+			success: function(response) {
+			  $('.menu-content').html(response);
+			}
+		  });
+		});
+	</script>
 	<body bgcolor="#000000">
 		<div w3-include-html="/sections/header.html"></div>
 		
 		<nav>
 			<ul class = "menu">
-				<li><a href="#home" class="menu-btn">Home</a></li>
-				<li><a href="#about" class="menu-btn">About</a></li>
-				<li><a href="#projects" class="menu-btn">Projects</a></li>
-				<li><a href="#contact" class="menu-btn">Contact</a></li>
+				<li><a data-content="home" class="active">Home</a></li>
+				<li><a data-content="about">About</a></li>
+				<li><a data-content="projects">Projects</a></li>
+				<li><a data-content="contact">Contact</a></li>
 				<li class="dropdown" style="width:55px;padding:0px;float:right;">
 				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
 				<div class="dropdown-content">
@@ -29,25 +46,11 @@
 			</ul>
 		</nav>
 		
-		<div class="menu-content">
-			<div data-menu-content="home">
-				HOME
-			</div>		
-			<div data-menu-content="about">
-				ABOUT
-			</div>		
-			<div data-menu-content="projects">
-				PROJECTS
+		<section>
+			<div class="menu-content">
+				
 			</div>
-			<div data-menu-content="contact">
-				CONTACT
-			</div>
-		</div>
-		
-		<div w3-include-html="/content/home.html"></div>
-		<div w3-include-html="/content/about.html"></div>
-		<div w3-include-html="/content/projects.html"></div>
-		<div w3-include-html="/content/contact.html"></div>
+		</section>
 		
 		<div w3-include-html="/sections/footer.html"></div>
 		
