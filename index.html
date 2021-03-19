@@ -36,7 +36,7 @@
 		function showContent(type) {
 		  $.each(content, function(i, v){
 			$('div[data-menu-content='+v+']').hide();
-			if (v == type && !$('div[data-menu-content='+v+']').hasClass("active"))
+			if (v == type && !$('li[data-menu-content='+v+']').hasClass("active"))
 				$('li[data-menu-content='+v+']').addClass("active");
 			else if ($('li[data-menu-content='+v+']').hasClass("active"))
 				$('li[data-menu-content='+v+']').removeClass("active");
