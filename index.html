@@ -14,25 +14,24 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
+			var $content = $('.menu-content');
+
+			function showContent(type) {
+			  $('div', $content).hide();
+			  $('div[data-menu-content='+type+']').show();
+			}
+
 			$('.menu').on('click', '.menu-btn', function(e) {
 			  console.log(e.currentTarget.hash.slice(1));
 			  showContent(e.currentTarget.hash.slice(1));
 			  e.preventDefault();
 			}); 
+
+			// show 'home' content only on page load (if you want)
+			showContent('home');
 		});
 		</script>
 	</head>
-	<script>
-		var $content = $('.menu-content');
-
-		function showContent(type) {
-		  $('div', $content).hide();
-		  $('div[data-menu-content='+type+']').show();
-		}
-
-		// show 'home' content only on page load (if you want)
-		showContent('home');
-	</script>
 	<body bgcolor="#000000">
 		<div w3-include-html="/sections/header.html"></div>
 		
@@ -57,19 +56,15 @@
 		
 		<div class="menu-content">
 			<div data-menu-content="home" style="display: none;">
-				HOME
 				<div w3-include-html="/content/home.html"></div>
 			</div>		
 			<div data-menu-content="about" style="display: none;">
-				ABOUT
 				<div w3-include-html="/content/about.html"></div>
 			</div>		
 			<div data-menu-content="projects" style="display: none;">
-				PROJECTS
 				<div w3-include-html="/content/projects.html"></div>
 			</div>
 			<div data-menu-content="contact" style="display: none;">
-				CONTACT
 				<div w3-include-html="/content/contact.html"></div>
 			</div>
 		</div>
