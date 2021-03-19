@@ -1,23 +1,8 @@
 <html lang="en">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="/scripts/includes.js"></script>
-	<script>
-		var $content = $('.menu-content');
-
-		function showContent(type) {
-		  $('div', $content).hide();
-		  $('div[data-menu-content='+type+']').show();
-		}
-
-		$('.menu').on('click', '.menu-btn', function(e) {
-		  showContent(e.currentTarget.hash.slice(1));
-		  e.preventDefault();
-		}); 
-
-		// show 'home' content only on page load (if you want)
-		showContent('home');
-	</script>
 	<head>
+		<script src="/scripts/content.js"></script>
 		<div w3-include-html="/sections/meta.html"></div>
 		<title>Home</title>
 	</head>
