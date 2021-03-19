@@ -15,8 +15,10 @@
 		<script>
 		$(document).ready(function(){
 			$('.menu').on('click', '.menu-btn', function(e) {
-			  showContent(e.currentTarget.hash.slice(1));
-			  e.preventDefault();
+				var type = e.currentTarget.hash.slice(1);
+				showContent(type);
+				document.title = type.charAt(0).toUpperCase() + type.slice(1);
+				e.preventDefault();
 			}); 
 					
 			// show 'home' content only on page load (if you want)
@@ -42,7 +44,6 @@
 				$('li[data-menu-content='+v+']').removeClass("active");
 		  });
 		  $('div[data-menu-content='+type+']').show();
-		  $(document).title = type.charAt(0).toUpperCase() + type.slice(1);
 		}
 	</script>
 	<body bgcolor="#000000">
