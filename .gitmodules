@@ -1,0 +1,3 @@
+[submodule "inventor"]
+	path = include/inventor
+	url = https://github.com/Joshuarox100/VRC-Inventory-Inventor.git
