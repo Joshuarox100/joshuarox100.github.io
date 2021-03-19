@@ -1,11 +1,26 @@
 <html lang="en">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="/scripts/includes.js"></script>
-	<script src="/scripts/content.js"></script>
+	<script>
+		var $content = $('.menu-content');
+
+		function showContent(type) {
+		  $content.hide().filter('[data-menu-content="' + type + '"]').show();
+		}
+
+		$('.menu').on('click', '.menu-btn', function(e) {
+		  showContent(e.currentTarget.hash.slice(1));
+		  e.preventDefault();
+		}); 
+
+		// show 'home' content only on page load (if you want)
+		showContent('home');
+	</script>
 	<head>
 		<div w3-include-html="/sections/meta.html"></div>
 		<title>Home</title>
 	</head>
+	
 	<body bgcolor="#000000">
 		<div w3-include-html="/sections/header.html"></div>
 		
@@ -15,6 +30,8 @@
 				><li><a href="#about" class="menu-btn">About</a></li
 				><li><a href="#projects" class="menu-btn">Projects</a></li
 				><li><a href="#contact" class="menu-btn">Contact</a></li>
+			</ul>
+			<ul>
 				<li class="dropdown" style="width:55px;padding:0px;float:right;">
 				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
 				<div class="dropdown-content">
@@ -28,19 +45,20 @@
 			</ul>
 		</nav>
 		
-		<div class="menu-content">
-			<div data-menu-content="home">HOME
-				<div w3-include-html="/content/home.html"></div>
-			</div>
-			<div data-menu-content="about">ABOUT
-				<div w3-include-html="/content/about.html"></div>
-			</div>
-			<div data-menu-content="projects">PROJECTS
-				<div w3-include-html="/content/projects.html"></div>
-			</div>
-			<div data-menu-content="contact">CONTACT
-				<div w3-include-html="/content/contact.html"></div>
-			</div>
+		<div class="menu-content" data-menu-content="home">HOME
+			<div w3-include-html="/content/home.html"></div>
+		</div>
+		
+		<div class="menu-content" data-menu-content="about">ABOUT
+			<div w3-include-html="/content/about.html"></div>
+		</div>
+		
+		<div class="menu-content" data-menu-content="projects">PROJECTS
+			<div w3-include-html="/content/projects.html"></div>
+		</div>
+		
+		<div class="menu-content" data-menu-content="contact">CONTACT
+			<div w3-include-html="/content/contact.html"></div>
 		</div>
 		
 		<div w3-include-html="/sections/footer.html"></div>
