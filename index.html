@@ -28,7 +28,8 @@
 				content.push([($(v).data('menu-content'))]);
 			})
 			
-			var hash = location.hash.replace('#', '');
+			var hash = [];
+			hash.push(location.hash.replace('#', ''));
 			console.log(content);
 			console.log(hash);
 			if (hash != "" && content.includes(hash))
