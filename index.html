@@ -5,7 +5,8 @@
 		var $content = $('.menu-content');
 
 		function showContent(type) {
-		  $content.hide().filter('[data-menu-content="' + type + '"]').show();
+		  $('div', $content).hide();
+		  $('div[data-menu-content='+type+']').show();
 		}
 
 		$('.menu').on('click', '.menu-btn', function(e) {
