@@ -29,6 +29,8 @@
 			})
 			
 			var hash = location.hash.replace('#', '');
+			console.log(content);
+			console.log(hash);
 			if (hash != "" && content.includes(hash))
 				showContent(hash);
 			else
