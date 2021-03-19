@@ -26,12 +26,10 @@
 		
 		<nav>
 			<ul class = "menu">
-				<li><a href="#home" class="menu-btn">Home</a></li
-				><li><a href="#about" class="menu-btn">About</a></li
-				><li><a href="#projects" class="menu-btn">Projects</a></li
-				><li><a href="#contact" class="menu-btn">Contact</a></li>
-			</ul>
-			<ul>
+				<li><a href="#home" class="menu-btn">Home</a></li>
+				<li><a href="#about" class="menu-btn">About</a></li>
+				<li><a href="#projects" class="menu-btn">Projects</a></li>
+				<li><a href="#contact" class="menu-btn">Contact</a></li>
 				<li class="dropdown" style="width:55px;padding:0px;float:right;">
 				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
 				<div class="dropdown-content">
@@ -45,21 +43,25 @@
 			</ul>
 		</nav>
 		
-		<div class="menu-content" data-menu-content="home">HOME
-			<div w3-include-html="/content/home.html"></div>
+		<div class="menu-content">
+			<div data-menu-content="home">
+				HOME
+			</div>		
+			<div data-menu-content="about">
+				ABOUT
+			</div>		
+			<div data-menu-content="projects">
+				PROJECTS
+			</div>
+			<div data-menu-content="contact">
+				CONTACT
+			</div>
 		</div>
 		
-		<div class="menu-content" data-menu-content="about">ABOUT
-			<div w3-include-html="/content/about.html"></div>
-		</div>
-		
-		<div class="menu-content" data-menu-content="projects">PROJECTS
-			<div w3-include-html="/content/projects.html"></div>
-		</div>
-		
-		<div class="menu-content" data-menu-content="contact">CONTACT
-			<div w3-include-html="/content/contact.html"></div>
-		</div>
+		<div w3-include-html="/content/home.html"></div>
+		<div w3-include-html="/content/about.html"></div>
+		<div w3-include-html="/content/projects.html"></div>
+		<div w3-include-html="/content/contact.html"></div>
 		
 		<div w3-include-html="/sections/footer.html"></div>
 		
