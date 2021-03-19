@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 	<script src="/scripts/includes.js"></script>
 	<head>
@@ -11,28 +12,36 @@
 		<link rel="stylesheet" href="/styles.css">
 		<link rel="icon" href="/images/avatar.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$('.menu').on('click', '.menu-btn', function(e) {
+			  console.log(e.currentTarget.hash.slice(1));
+			  showContent(e.currentTarget.hash.slice(1));
+			  e.preventDefault();
+			}); 
+		});
+		</script>
 	</head>
 	<script>
-	  $('nav li').click(function() {
-		  $.ajax({
-			type: 'GET',
-			url: '/content/'+$(this).data('content')+'.html',
-			dataType: 'html',
-			success: function(response) {
-			  $('.menu-content').html(response);
-			}
-		  });
-		});
+		var $content = $('.menu-content');
+
+		function showContent(type) {
+		  $('div', $content).hide();
+		  $('div[data-menu-content='+type+']').show();
+		}
+
+		// show 'home' content only on page load (if you want)
+		showContent('home');
 	</script>
 	<body bgcolor="#000000">
 		<div w3-include-html="/sections/header.html"></div>
 		
 		<nav>
-			<ul>
-				<li><a data-content="home" class="active">Home</a></li>
-				<li><a data-content="about">About</a></li>
-				<li><a data-content="projects">Projects</a></li>
-				<li><a data-content="contact">Contact</a></li>
+			<ul class = "menu">
+				<li><a href="#home" class="menu-btn">Home</a></li>
+				<li><a href="#about" class="menu-btn">About</a></li>
+				<li><a href="#projects" class="menu-btn">Projects</a></li>
+				<li><a href="#contact" class="menu-btn">Contact</a></li>
 				<li class="dropdown" style="width:55px;padding:0px;float:right;">
 				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
 				<div class="dropdown-content">
@@ -46,11 +55,24 @@
 			</ul>
 		</nav>
 		
-		<section>
-			<div class="menu-content">
-				
+		<div class="menu-content">
+			<div data-menu-content="home" style="display: none;">
+				HOME
+				<div w3-include-html="/content/home.html"></div>
+			</div>		
+			<div data-menu-content="about" style="display: none;">
+				ABOUT
+				<div w3-include-html="/content/about.html"></div>
+			</div>		
+			<div data-menu-content="projects" style="display: none;">
+				PROJECTS
+				<div w3-include-html="/content/projects.html"></div>
 			</div>
-		</section>
+			<div data-menu-content="contact" style="display: none;">
+				CONTACT
+				<div w3-include-html="/content/contact.html"></div>
+			</div>
+		</div>
 		
 		<div w3-include-html="/sections/footer.html"></div>
 		
