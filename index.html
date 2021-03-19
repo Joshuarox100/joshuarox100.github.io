@@ -14,6 +14,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
+			var contentArray=[];
+			var getChild = $("#menu-content").children();
+			getChild.each(function(i,v){
+				contentArray.push([($(v).data('menu-content'))]);
+			})
+			console.log(contentArray);
+			
 			$('.menu').on('click', '.menu-btn', function(e) {
 			  showContent(e.currentTarget.hash.slice(1));
 			  e.preventDefault();
@@ -28,7 +35,9 @@
 		var $content = $('.menu-content');
 		
 		function showContent(type) {
-		  $('div', $content).hide();
+		  contentArray.each(function(i, v){
+			$('div[data-menu-content='+$(v)+']').hide();
+		  });
 		  $('div[data-menu-content='+type+']').show();
 		}
 	</script>
@@ -54,7 +63,7 @@
 			</ul>
 		</nav>
 		
-		<div class="menu-content">
+		<div class="menu-content" id="menu-content">
 			<div data-menu-content="home" style="display: none;">
 				<div w3-include-html="/content/home.html"></div>
 			</div>		
