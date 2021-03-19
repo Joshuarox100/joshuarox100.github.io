@@ -15,9 +15,7 @@
 		<script>
 		$(document).ready(function(){
 			$('.menu').on('click', '.menu-btn', function(e) {
-				var type = e.currentTarget.hash.slice(1);
-				showContent(type);
-				document.title = type.charAt(0).toUpperCase() + type.slice(1);
+				showContent(e.currentTarget.hash.slice(1));
 				e.preventDefault();
 			}); 
 					
@@ -44,6 +42,7 @@
 				$('li[data-menu-content='+v+']').removeClass("active");
 		  });
 		  $('div[data-menu-content='+type+']').show();
+		  document.title = type.charAt(0).toUpperCase() + type.slice(1);
 		}
 	</script>
 	<body bgcolor="#000000">
