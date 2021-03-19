@@ -37,9 +37,9 @@
 		  $.each(content, function(i, v){
 			$('div[data-menu-content='+v+']').hide();
 			if (v == type && !$('div[data-menu-content='+v+']').hasClass("active"))
-				$('div[data-menu-content='+v+']').addClass("active");
+				$('li[data-menu-content='+v+']').addClass("active");
 			else if ($('div[data-menu-content='+v+']').hasClass("active"))
-				$('div[data-menu-content='+v+']').removeClass("active");
+				$('li[data-menu-content='+v+']').removeClass("active");
 		  });
 		  $('div[data-menu-content='+type+']').show();
 		  $(document).title = type.charAt(0).toUpperCase() + type.slice(1);
@@ -50,10 +50,10 @@
 		
 		<nav>
 			<ul class = "menu">
-				<li><a href="#home" class="menu-btn">Home</a></li>
-				<li><a href="#about" class="menu-btn">About</a></li>
-				<li><a href="#projects" class="menu-btn">Projects</a></li>
-				<li><a href="#contact" class="menu-btn">Contact</a></li>
+				<li data-menu-content="home"><a href="#home" class="menu-btn">Home</a></li>
+				<li data-menu-content="about"><a href="#about" class="menu-btn">About</a></li>
+				<li data-menu-content="projects"><a href="#projects" class="menu-btn">Projects</a></li>
+				<li data-menu-content="contact"><a href="#contact" class="menu-btn">Contact</a></li>
 				<li class="dropdown" style="width:55px;padding:0px;float:right;">
 				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
 				<div class="dropdown-content">
