@@ -25,11 +25,10 @@
 		$(document).ready(function(){
 			var getChild = $("#menu-content").children();
 			getChild.each(function(i,v){
-				content.push([($(v).data('menu-content'))]);
+				content.push(($(v).data('menu-content')));
 			})
 			
-			var hash = [];
-			hash.push(location.hash.replace('#', ''));
+			var hash = location.hash.replace('#', '');
 			console.log(content);
 			console.log(hash);
 			if (hash != "" && content.includes(hash))
