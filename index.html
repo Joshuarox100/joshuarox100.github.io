@@ -15,19 +15,16 @@
 		<script>
 		$(document).ready(function(){
 			$('.menu').on('click', '.menu-btn', function(e) {
-			  console.log(e.currentTarget.hash.slice(1));
 			  showContent(e.currentTarget.hash.slice(1));
 			  e.preventDefault();
 			}); 
-
+					
 			// show 'home' content only on page load (if you want)
 			showContent('home');
 		});
 		</script>
 	</head>
-	<script>
-		var $content = $('.menu-content');
-
+	<script>	
 		function showContent(type) {
 		  $('div', $content).hide();
 		  $('div[data-menu-content='+type+']').show();
@@ -76,4 +73,7 @@
 		includeHTML();
 		</script>
 	</body>
+	<script>
+		var $content = $('.menu-content');
+	</script>
 </html>
