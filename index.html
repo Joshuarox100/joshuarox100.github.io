@@ -16,11 +16,7 @@
 		$(document).ready(function(){
 			$('.menu').on('click', '.menu-btn', function(e) {
 				showContent(e.currentTarget.hash.slice(1));
-				e.preventDefault();
-			}); 
-					
-			// show 'home' content only on page load (if you want)
-			showContent('home');
+			}); 			
 		});
 		</script>
 	</head>
@@ -31,6 +27,12 @@
 			getChild.each(function(i,v){
 				content.push([($(v).data('menu-content'))]);
 			})
+			
+			var hash = location.hash.replace('#', '');
+			if (hash != "")
+				showContent(hash);
+			else
+				showContent('home');
 		});
 		
 		function showContent(type) {
