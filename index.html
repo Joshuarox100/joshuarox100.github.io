@@ -24,7 +24,9 @@
 		});
 		</script>
 	</head>
-	<script>	
+	<script>
+		var $content = $('.menu-content');
+		
 		function showContent(type) {
 		  $('div', $content).hide();
 		  $('div[data-menu-content='+type+']').show();
@@ -73,7 +75,4 @@
 		includeHTML();
 		</script>
 	</body>
-	<script>
-		var $content = $('.menu-content');
-	</script>
 </html>
