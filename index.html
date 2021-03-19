@@ -28,11 +28,14 @@
 				content.push([($(v).data('menu-content'))]);
 			})
 			
-			var hash = location.hash;
-			if (hash != "" && $('body').find(hash+':first'))
-				showContent(location.hash.replace('#', ''));
+			var hash = location.hash.replace('#', '');
+			if (hash != "" && content.includes(hash))
+				showContent(hash);
 			else
+			{
+				location.href = '#home';
 				showContent('home');
+			}	
 		});
 		
 		function showContent(type) {
