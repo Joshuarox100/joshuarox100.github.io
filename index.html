@@ -14,10 +14,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
-			$('.menu').on('click', '.menu-btn', function(e) {
-				showContent(e.currentTarget.hash.slice(1));
-			}); 
-
 			history.pushState = ( f => function pushState(){
 				var ret = f.apply(this, arguments);
 				window.dispatchEvent(new Event('pushstate'));
@@ -57,7 +53,14 @@
 		});
 		
 		window.addEventListener('locationchange', function(){
-			console.log('location changed!');
+			var hash = location.hash.replace('#', '');
+			if (hash != "" && content.includes(hash))
+				showContent(hash);
+			else
+			{
+				location.href = '#home';
+				showContent('home');
+			}
 		})
 		
 		function showContent(type) {
