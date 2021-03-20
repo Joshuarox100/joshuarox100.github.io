@@ -41,7 +41,7 @@
 			$.getJSON( "/projects/details.json", function( data ) {
 				var groups = [];
 				$.each( data, function( i, group ) {
-					groups.push(group.sort((a, b) => (new Date(a.lastUpdated) > new Date(b.lastUpdated)) ? 1 : (new Date(a.lastUpdated) === new Date(b.lastUpdated)) ? ((a.name < b.name) ? 1 : -1) : -1 ));
+					groups.push(group.sort((a, b) => (new Date(a.lastUpdated).getTime() > new Date(b.lastUpdated).getTime()) ? 1 : (new Date(a.lastUpdated).getTime() === new Date(b.lastUpdated).getTime()) ? ((a.name < b.name) ? 1 : -1) : -1 ));
 				});
 				$.each( groups, function( index, group ) {
 					var items = [];
