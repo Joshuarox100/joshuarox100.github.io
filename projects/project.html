@@ -43,15 +43,14 @@
 						projects.push( val.page );
 					});
 				});
+				console.log(projects);
+				var hash = location.hash.replace('#', '');
+				console.log(hash);
+				if (hash == "" || !projects.includes(hash))
+					console.log("first: " + (hash == "") + " second: " + (!projects.includes(hash)));
+				else
+					document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
 			});
-			
-			console.log(projects);
-			var hash = location.hash.replace('#', '');
-			console.log(hash);
-			if (hash == "" || !projects.includes(hash))
-				console.log("first: " + (hash == "") + " second: " + (!projects.includes(hash)));
-			else
-				document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
 		});
 		
 		window.addEventListener('locationchange', function(){
