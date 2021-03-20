@@ -54,7 +54,7 @@
 					var item = projects[projNames.indexOf(hash)];
 					document.title = item.name;
 					
-					var features = "";
+					var features = [];
 					$.each( item.features, function(i, v) {
 						features.push( "<li style=\"type:disc;float:none;clear:both;font-size:24px;\">" + v + "</li>" );
 					});
