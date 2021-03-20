@@ -3,7 +3,7 @@
 		"lastUpdated" : "March 18, 2021 22:04:00 CDT",
 		"page" : "InventoryInventor",
 		"name" : "Inventory Inventor",
-		"image" : "/images/wip.png",
+		"image" : "/images/none.png",
 		"summary" : "Make inventories fast with Inventory Inventor! With it, you can create inventories with plenty of toggles, all managed by a single Expression Parameter! <i>(Disclamer: You can choose to use more parameters if you want to save the state of items in the Inventory.)</i> This tool is meant for usage with Unity when creating Avatars for VRChat.",
 		"features" : [
 			"Presets for Saving Inventory Configurations", 
@@ -38,10 +38,10 @@
 			"Multiple Formats", 
 			"Light & Dark Theme"
 		],
-		"status" : "On Hold",
+		"status" : "Hold",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "/images/ytdlgui.png",
+			"file" : "https://github.com/Joshuarox100/Youtube-DL_GUI/releases/download/v0.5.2/Youtube-DL.GUI.0.5.2.zip",
 			"name" : "Youtube-DL.GUI.0.5.2.zip",
 			"version" : "0.5.2",
 			"size" : "173 MB",
@@ -134,15 +134,15 @@
 		"lastUpdated" : "January 12, 2020 03:22:00 CDT",
 		"page" : "UnityVRGame",
 		"name" : "Unity VR Game (No Name)",
-		"image" : "/images/wip.png",
+		"image" : "/images/none.png",
 		"summary" : "For the past few months, I've been interested in trying to create a virtual reality experience. Although I have yet to fully decide on what that will be, I do plan on getting some prototype done in the near future.",
 		"features" : [
 			"To Be Decided"
 		],
-		"status" : "On Hold",
+		"status" : "Hold",
 		"hasDownload" : false,
 		"fileDetails" : {
-			"file" : "/images/wip.png",
+			"file" : "",
 			"name" : "",
 			"version" : "",
 			"size" : "",
@@ -154,7 +154,7 @@
 		"lastUpdated" : "January 12, 2020 03:22:00 CDT",
 		"page" : "VisualNovel",
 		"name" : "Visual Novel (No Name)",
-		"image" : "/images/wip.png",
+		"image" : "/images/none.png",
 		"summary" : "This is a collaborative project involving my good friends iron.pyrite and Luci V. Lillium on Discord. We decided on creating a visual novel exploring some made up scenarios involving the rest of our friends in the group. This project is still very early on and likely won't be completed for at least a year due to college and work.",
 		"features" : [
 			"Multiple Endings",
@@ -162,10 +162,10 @@
 			"Many Inside Jokes",
 			"Several Characters"
 		],
-		"status" : "On Hold",
+		"status" : "Hold",
 		"hasDownload" : false,
 		"fileDetails" : {
-			"file" : "/images/wip.png",
+			"file" : "",
 			"name" : "",
 			"version" : "",
 			"size" : "",

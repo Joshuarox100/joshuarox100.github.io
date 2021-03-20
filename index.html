@@ -49,7 +49,15 @@
 				$.each( group, function( index, project ) {
 					if (index > 2)
 						return false;
-					items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					
+					if (project.status == "WIP")
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><div data-content=\"/images/wip.png\" class=\"image\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></div></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else if (project.status == "Hold")
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><div data-content=\"/images/hold.png\" class=\"image\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></div></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else if (project.status == "Archived")
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><div data-content=\"/images/archived.png\" class=\"image\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></div></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 				});
 				projects.push(items.reverse());
 			});
