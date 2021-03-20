@@ -1,6 +1,6 @@
 { 
 	"shaders" : [{
-		"page" : "animatedShader",
+		"page" : "AnimatedShader",
 		"name" : "Animated Shader",
 		"image" : "/images/animatedshader.gif",
 		"summary" : "The Animated Shader takes a spritesheet and plays an animation by going through each of the frames, one by one, to simulate the effect of a gif. This saves the user from having to make a animation file that goes through the texture frame by frame manually.",
@@ -23,9 +23,33 @@
 				"Example Scenes"
 			]
 		}
+	},
+	{
+		"page" : "RevolvingFade",
+		"name" : "Revolving Fade",
+		"image" : "/images/RevolvingFade.gif",
+		"summary" : "This is a fairly simple shader. Works similarly to other fade shaders, but with the added ability to spin whatever texture is applied to it continuously.",
+		"features" : [
+			"Rotating Textures", 
+			"Adjustable Speed", 
+			"Supports Emissions"
+		],
+		"status" : "Completed",
+		"hasDownload" : true,
+		"fileDetails" : {
+			"file" : "/images/RevolvingFade.gif",
+			"name" : "Revolving_Fade.unitypackage",
+			"version" : "1.0.0",
+			"size" : "310 KB",
+			"supports" : "Unity 2017.4 and higher",
+			"contains" : [ 
+				"Shader", 
+				"Example Scenes"
+			]
+		}
 	}],
 	"tools" : [{
-		"page" : "ytdlgui",
+		"page" : "Ytdlgui",
 		"name" : "Youtube-DL GUI (Java Edition)",
 		"image" : "/images/ytdlgui.png",
 		"summary" : "After the only other GUI for this application on github made my computer blue screen, I decided to start working on this. <a href=\"https://github.com/ytdl-org/youtube-dl\" target=\"_blank\">Youtube-DL</a> is a command-line program made for downloading videos from YouTube and other sites. However, because it lacks a user interface (and most people aren't going to bother learning to use command prompt), I decided to work on a user-friendly interface for the program.",
@@ -52,7 +76,7 @@
 		}
 	}],
 	"games" : [{
-		"page" : "minesweeper",
+		"page" : "Minesweeper",
 		"name" : "Minesweeper",
 		"image" : "/images/minesweeper.gif",
 		"summary" : "Reveal tiles, plant flags, you know the drill. Uncovered tiles will show how many of the surrounding eight tiles have mines on them, if any. Right click to plant a flag on tiles you think have mines. The game is won once all tiles without mines have been revealed. Good luck!",
@@ -73,6 +97,47 @@
 				"Executable", 
 				"Java Runtime Environment"
 			]
+		}
+	},
+	{
+		"page" : "UnityVRGame",
+		"name" : "Unity VR Game (No Name)",
+		"image" : "/images/wip.png",
+		"summary" : "For the past few months, I've been interested in trying to create a virtual reality experience. Although I have yet to fully decide on what that will be, I do plan on getting some prototype done in the near future.",
+		"features" : [
+			"To Be Decided"
+		],
+		"status" : "On Hold",
+		"hasDownload" : false,
+		"fileDetails" : {
+			"file" : "/images/wip.png",
+			"name" : "",
+			"version" : "",
+			"size" : "",
+			"supports" : "",
+			"contains" : []
+		}
+	},
+	{
+		"page" : "VisualNovel",
+		"name" : "Visual Novel (No Name)",
+		"image" : "/images/wip.png",
+		"summary" : "This is a collaborative project involving my good friends iron.pyrite and Luci V. Lillium on Discord. We decided on creating a visual novel exploring some made up scenarios involving the rest of our friends in the group. This project is still very early on and likely won't be completed for at least a year due to college and work.",
+		"features" : [
+			"Multiple Endings",
+			"Voice Acting (Maybe)",
+			"Many Inside Jokes",
+			"Several Characters"
+		],
+		"status" : "On Hold",
+		"hasDownload" : false,
+		"fileDetails" : {
+			"file" : "/images/wip.png",
+			"name" : "",
+			"version" : "",
+			"size" : "",
+			"supports" : "",
+			"contains" : []
 		}
 	}]
 }

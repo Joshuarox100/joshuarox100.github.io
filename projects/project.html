@@ -63,11 +63,16 @@
 					});
 					$("ul[data=features]").append(features.join(""));
 					
-					$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
-					$("li[data=filesize]").append(item.fileDetails.size);
-					$("li[data=platform]").append(item.fileDetails.supports);
-					$("li[data=contents]").append(item.fileDetails.contains.join(", "));
-					$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
+					if (item.hasDownload)
+					{
+						$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
+						$("li[data=filesize]").append(item.fileDetails.size);
+						$("li[data=platform]").append(item.fileDetails.supports);
+						$("li[data=contents]").append(item.fileDetails.contains.join(", "));
+						$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
+					}
+					else
+						$("div[data=fileDetails]").hide();
 				}	
 			});
 		});
@@ -111,15 +116,17 @@
 					<ul data="features" style="background-color:#111;position:relative;"></ul>
 					<br>
 				</p>
-				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>File Details</b><br><br>
-					<ul style="background-color:#111;position:relative;">
-						<li data="filename" style="type:disc;clear:both;font-size:24px;display:block;">Name: </li>
-						<li data="filesize" style="type:disc;clear:both;font-size:24px;display:block;">File Size: </li>
-						<li data="platform" style="type:disc;clear:both;font-size:24px;display:block;">Supports: </li>
-						<li data="contents" style="type:disc;clear:both;font-size:24px;display:block;">Contains: </li>
-					</ul>
-				</p>
-				<div data="download" class="container" style="padding:20px;text-align:center;">
+				<div data="fileDetails">
+					<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>File Details</b><br><br>
+						<ul style="background-color:#111;position:relative;">
+							<li data="filename" style="type:disc;clear:both;font-size:24px;display:block;">Name: </li>
+							<li data="filesize" style="type:disc;clear:both;font-size:24px;display:block;">File Size: </li>
+							<li data="platform" style="type:disc;clear:both;font-size:24px;display:block;">Supports: </li>
+							<li data="contents" style="type:disc;clear:both;font-size:24px;display:block;">Contains: </li>
+						</ul>
+					</p>
+					<div data="download" class="container" style="padding:20px;text-align:center;">
+					</div>
 				</div>
 			</div>
 		</section>
