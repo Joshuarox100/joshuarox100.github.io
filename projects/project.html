@@ -58,7 +58,7 @@
 					
 					var features = [];
 					$.each( item.features, function(i, v) {
-						features.push( "<li style=\"type:disc;float:none;clear:both;font-size:24px;\">" + v + "</li>" );
+						features.push( "<li style=\"type:disc;clear:both;font-size:24px;\">" + v + "</li>" );
 					});
 					$("ul[data=features]").append(features.join(""));
 					
@@ -107,16 +107,15 @@
 			<div class="textbox" style="min-width:375px;max-width:900px;vertical-align:top;border-width:5px;">
 				<p data="summary" style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>Summary</b><br><br></p><br><br>
 				<p style="margin:auto;min-width:300;max-width:750px;text-align:center;font-size:24px;"><b>Features</b><br><br>
-					<ul data="features" style="background-color:#111;position:relative;">
-					</ul>
+					<ul data="features" style="background-color:#111;position:relative;"></ul>
 					<br>
 				</p>
 				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>File Details</b><br><br>
-					<ul style="background-color:#111;position:relative;display:block;">
-						<li data="filename" style="type:disc;float:none;clear:both;font-size:24px;">Name: </li>
-						<li data="filesize" style="type:disc;float:none;clear:both;font-size:24px;">File Size: </li>
-						<li data="platform" style="type:disc;float:none;clear:both;font-size:24px;">Supports: </li>
-						<li data="contents" style="type:disc;float:none;clear:both;font-size:24px;">Contains: </li>
+					<ul style="background-color:#111;position:relative;">
+						<li data="filename" style="type:disc;clear:both;font-size:24px;">Name: </li>
+						<li data="filesize" style="type:disc;clear:both;font-size:24px;">File Size: </li>
+						<li data="platform" style="type:disc;clear:both;font-size:24px;">Supports: </li>
+						<li data="contents" style="type:disc;clear:both;font-size:24px;">Contains: </li>
 					</ul>
 				</p>
 				<div class="container" style="padding:20px;text-align:center;">
