@@ -48,10 +48,10 @@
 			
 			console.log(projects);
 			var hash = location.hash.replace('#', '');
-			if (hash == "" || !projects.includes(hash))
-				window.location.replace("/#home");
-			else
-				document.title = type.charAt(0).toUpperCase() + type.slice(1);
+			//if (hash == "" || !projects.includes(hash))
+				//window.location.replace("../#home");
+			//else
+				//document.title = type.charAt(0).toUpperCase() + type.slice(1);
 		});
 		
 		window.addEventListener('locationchange', function(){
