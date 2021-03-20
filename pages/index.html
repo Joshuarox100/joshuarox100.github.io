@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<script src="/scripts/includes.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="personal, Unity shaders, downloads, information, Joshuarox100, JoshuaB57">
+		<meta name="description" content="Personal site with some of my projects and info">
+		<meta name="author" content="Joshuarox100">
+		<title>Projects</title>
+		<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet'>
+		<link rel="stylesheet" href="/styles.css">
+		<link rel="icon" href="/images/avatar.png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			history.pushState = ( f => function pushState(){
+				var ret = f.apply(this, arguments);
+				window.dispatchEvent(new Event('pushstate'));
+				window.dispatchEvent(new Event('locationchange'));
+				return ret;
+			})(history.pushState);
+
+			history.replaceState = ( f => function replaceState(){
+				var ret = f.apply(this, arguments);
+				window.dispatchEvent(new Event('replacestate'));
+				window.dispatchEvent(new Event('locationchange'));
+				return ret;
+			})(history.replaceState);
+
+			window.addEventListener('popstate',()=>{
+				window.dispatchEvent(new Event('locationchange'))
+			});
+		});
+		</script>
+	</head>
+	<script>
+		var groups = ["shaders", "tools", "games"];
+		
+		$(document).ready(function(){
+			$.getJSON( "/projects/details.json", function( data ) {
+				var hash = location.hash.replace('#', '');
+				if (hash == "" || !groups.includes(hash))
+					window.location.replace("../#projects");
+				else
+				{
+					var root = [];
+					if (hash == "tools")
+						root = data.tools;
+					else if (hash == "shaders")
+						root = data.shaders;
+					else if (hash == "games")
+						root = data.games;
+					document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
+					$("p[data=title]").append(hash.charAt(0).toUpperCase() + hash.slice(1));
+					
+					var items = [];
+					$.each( root, function( index, project ) {
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					});
+					$("div[data=items]").append(items.join(""));
+				}	
+			});
+		});
+		
+		window.addEventListener('locationchange', function(){
+			location.reload();
+		})
+	</script>
+	<body bgcolor="#000000">
+		<div w3-include-html="/sections/header.html"></div>
+		
+		<nav>
+			<ul>
+			  <li><a href="/#home">Home</a></li
+			  ><li><a href="/#about">About</a></li
+			  ><li><a href="/#projects" class="active">Projects</a></li
+			  ><li><a href="/#contact">Contact</a></li>
+			  <li class="dropdown" style="width:55px;padding:0px;float:right;">
+				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
+			  <div class="dropdown-content">
+			  <ul>
+				<a class="dropdown-content" href="https://twitter.com/Joshuarox100" target="_blank"><img src="/images/twitter.png" alt="Twitter" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+				<a class="dropdown-content" href="https://www.twitch.tv/joshuarox100hd" target="_blank"><img src="/images/twitch.png" alt="Twitch" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+				<a class="dropdown-content" href="https://www.youtube.com/user/Joshuarox100" target="_blank"><img src="/images/youtube.png" alt="YouTube" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+			  </ul>
+			  </div>
+			  </li>
+			</ul>
+		</nav>
+		
+		<section>
+			<br>
+			<div class="textbox" style="max-width:900px">
+				<strong><p data="title" style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;">All </p></strong>
+			</div>
+			<br>
+			<div data="items" style="margin:auto;text-align:center;">
+			</div>
+			<div class="clearfix"></div>
+		</section>
+		
+		<div w3-include-html="/sections/footer.html"></div>
+		
+		<script>
+		includeHTML();
+		</script>
+		
+	</body>
+</html>
