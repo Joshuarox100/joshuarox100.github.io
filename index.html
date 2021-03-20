@@ -53,10 +53,10 @@
 					projects.push(items.reverse());
 				});
 				var featured = [projects[0][0], projects[1][0], projects[2][0]];
-				$("div[data-home=featured]").append(featured.join(""));
-				$("div[data-projects=tools]").append(projects[0].join(""));
-				$("div[data-projects=shaders]").append(projects[1].join(""));
-				$("div[data-projects=games]").append(projects[2].join(""));
+				$("div[data=featured]").append(featured.join(""));
+				$("div[data=tools]").append(projects[0].join(""));
+				$("div[data=shaders]").append(projects[1].join(""));
+				$("div[data=games]").append(projects[2].join(""));
 				console.log(projects);
 				
 				var getChild = $("#menu-content").children();
@@ -132,7 +132,7 @@
 				</section>
 
 				<section>
-					<div data-home="featured" style="margin:auto;text-align:center;">
+					<div data="featured" style="margin:auto;text-align:center;">
 					</div>
 					<div class="clearfix"></div>
 				</section>
@@ -161,7 +161,7 @@
 						<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>Tools</strong></p>
 					</div>
 					<br>
-					<div data-projects="tools" style="margin:auto;text-align:center;">
+					<div data="tools" style="margin:auto;text-align:center;">
 					</div>
 					<div class="clearfix"></div>
 					<p style="margin:auto;padding:20px 0;font-size:24px;max-width:750px;text-align:center;"><a href="/pages/#tools" style="color:white;text-decoration:none;">View More!</a></p>
@@ -173,7 +173,7 @@
 						<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>Shaders</strong></p>
 					</div>
 					<br>
-					<div data-projects="shaders" style="margin:auto;text-align:center;">
+					<div data="shaders" style="margin:auto;text-align:center;">
 					</div>
 					<div class="clearfix"></div>
 					<p style="margin:auto;padding:20px 0;font-size:24px;max-width:750px;text-align:center;"><a href="/pages/#shaders" style="color:white;text-decoration:none;">View More!</a></p>
@@ -185,7 +185,7 @@
 						<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>Games</strong></p>
 					</div>
 					<br>
-					<div data-projects="games" style="margin:auto;text-align:center;">
+					<div data="games" style="margin:auto;text-align:center;">
 					</div>
 					<div class="clearfix"></div>
 					<p style="margin:auto;padding:20px 0;font-size:24px;max-width:750px;text-align:center;"><a href="/pages/#games" style="color:white;text-decoration:none;">View More!</a></p>
