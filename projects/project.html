@@ -49,10 +49,7 @@
 			console.log(projects);
 			var hash = location.hash.replace('#', '');
 			console.log(hash);
-			if (hash == "" || !projects.includes(hash))
-				window.location.replace("../#home");
-			else
-				document.title = type.charAt(0).toUpperCase() + type.slice(1);
+			
 		});
 		
 		window.addEventListener('locationchange', function(){
