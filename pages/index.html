@@ -58,6 +58,7 @@
 					$.each( root, function( index, project ) {
 						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 					});
+					items.sort((a, b) => (a.name > b.name) ? 1 : (a.name === b.name) ? ((a.page > b.page) ? 1 : -1) : -1 )
 					$("div[data=items]").append(items.join(""));
 				}	
 			});
