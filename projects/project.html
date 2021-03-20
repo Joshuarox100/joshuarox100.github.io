@@ -53,12 +53,19 @@
 				{
 					var item = projects[projNames.indexOf(hash)];
 					document.title = item.name;
+					$("p[data=name]").append(item.name);
+					$("p[data=summary]").append(item.summary);
 					
 					var features = [];
 					$.each( item.features, function(i, v) {
 						features.push( "<li style=\"type:disc;float:none;clear:both;font-size:24px;\">" + v + "</li>" );
 					});
 					$("ul[data=features]").append(features.join(""));
+					
+					$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
+					$("li[data=filesize]").append(item.fileDetails.size);
+					$("li[data=platform]").append(item.fileDetails.supports);
+					$("li[data=contents]").append(item.fileDetails.contains.join(", "));
 				}	
 			});
 		});
@@ -92,25 +99,24 @@
 		<section>
 			<br>
 			<div class="textbox" style="max-width:900px">
-				<p data="name" style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>NAME</strong></p>
+				<strong><p data="name" style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"></p></strong>
 			</div>
 			<div class="container" style="padding:20px;text-align:center;">
 				<img data="image" src="/images/wip.png" alt="Preview" style="max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;">
 			</div>
 			<div class="textbox" style="min-width:375px;max-width:900px;vertical-align:top;border-width:5px;">
-				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>Summary</b><br><br>SUMMARY</p><br><br>
+				<p data="summary" style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>Summary</b><br><br></p><br><br>
 				<p style="margin:auto;min-width:300;max-width:750px;text-align:center;font-size:24px;"><b>Features</b><br><br>
-					<ul data="features" style="background-color:#111;position:relative;display:block;">
-						
+					<ul data="features" style="background-color:#111;position:relative;">
 					</ul>
 					<br>
 				</p>
 				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>File Details</b><br><br>
 					<ul style="background-color:#111;position:relative;display:block;">
-						<li data="filename" style="type:disc;float:none;clear:both;font-size:24px;">Name: "NAME"</li>
-						<li data="filesize" style="type:disc;float:none;clear:both;font-size:24px;">File Size: SIZE</li>
-						<li data="platform" style="type:disc;float:none;clear:both;font-size:24px;">Supports: PLATFORM</li>
-						<li data="contents" style="type:disc;float:none;clear:both;font-size:24px;">Contains: CONTENTS</li>
+						<li data="filename" style="type:disc;float:none;clear:both;font-size:24px;">Name: </li>
+						<li data="filesize" style="type:disc;float:none;clear:both;font-size:24px;">File Size: </li>
+						<li data="platform" style="type:disc;float:none;clear:both;font-size:24px;">Supports: </li>
+						<li data="contents" style="type:disc;float:none;clear:both;font-size:24px;">Contains: </li>
 					</ul>
 				</p>
 				<div class="container" style="padding:20px;text-align:center;">
