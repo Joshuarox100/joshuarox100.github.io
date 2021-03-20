@@ -37,7 +37,6 @@
 	<script>
 		var projects = [];
 		var projNames = [];
-		var latestRelease = [];
 		
 		$(document).ready(function(){
 			$.getJSON( "/projects/details.json", function( data ) {
@@ -70,33 +69,7 @@
 					if (item.hasDownload)
 					{
 						if (item.hasGitHub)
-						{
-							GetLatestReleaseInfo(item);
-							if (latestRelease.length > 0)
-							{
-								var asset = latestRelease[0].assets[0];
-								$("li[data=filename]").append("\"" + asset.name + "\"");
-								var sizeKB = asset.size;
-								var sizeMB = sizeKB / 1024;
-								if (sizeMB > 1)
-									$("li[data=filesize]").append(sizeMB);
-								else
-									$("li[data=filesize]").append(sizeKB);
-								if (item.fileDetails.supports != "")
-									$("li[data=platform]").append(item.fileDetails.supports);
-								else
-									$("li[data=platform]").hide();
-								if (item.fileDetails.contains.length > 0)
-									$("li[data=contents]").append(item.fileDetails.contains.join(", "));
-								else
-									$("li[data=contents]").hide();
-								$("div[data=download]").append("<a href=\"" + asset.browser_download_url + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
-							}
-							else
-							{
-								$("div[data=fileDetails]").hide();
-							}
-						}
+							UseLatestReleaseInfo(item);
 						else
 						{
 							$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
@@ -112,8 +85,9 @@
 			});
 		});
 		
-		function GetLatestReleaseInfo(item) {
+		function UseLatestReleaseInfo(item) {
 			$.getJSON("https://api.github.com/repos/" + item.repoLink + "/releases").done(function(data) {
+				console.log(data);
 				var latest = [];
 				var latestDate = new Date(-8640000000000000);
 				$.each(data, function(i, v) {
@@ -125,7 +99,29 @@
 					}
 				});
 				if (latest.length > 0)
-					latestRelease = latest;
+				{
+					var asset = latest[0].assets[0];
+					$("li[data=filename]").append("\"" + asset.name + "\"");
+					var sizeKB = asset.size;
+					var sizeMB = sizeKB / 1024;
+					if (sizeMB > 1)
+						$("li[data=filesize]").append(sizeMB);
+					else
+						$("li[data=filesize]").append(sizeKB);
+					if (item.fileDetails.supports != "")
+						$("li[data=platform]").append(item.fileDetails.supports);
+					else
+						$("li[data=platform]").hide();
+					if (item.fileDetails.contains.length > 0)
+						$("li[data=contents]").append(item.fileDetails.contains.join(", "));
+					else
+						$("li[data=contents]").hide();
+					$("div[data=download]").append("<a href=\"" + asset.browser_download_url + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
+				}
+				else
+				{
+					$("div[data=fileDetails]").hide();
+				}
 			});
 		}
 		
