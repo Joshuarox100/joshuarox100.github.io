@@ -36,11 +36,13 @@
 	</head>
 	<script>
 		var projects = [];
+		var projNames = [];
 		$(document).ready(function(){
 			$.getJSON( "/projects/details.json", function( data ) {
 				$.each( data, function( key, val ) {
-					$.each( val, function( key, val ) {
-						projects.push( val.page );
+					$.each( val, function( key1, val2 ) {
+						projects.push( val2 );
+						projNames.push( val2.page );
 					});
 				});
 
@@ -48,7 +50,19 @@
 				if (hash == "" || !projects.includes(hash))
 					window.location.replace("../#projects");
 				else
-					document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
+				{
+					var item = projects[projNames.indexOf(hash)];
+					document.title = item.name;
+					
+					var features = "";
+					$.each( item.features, function(i, v) {
+						items.push( "<li style=\"type:disc;float:none;clear:both;font-size:24px;\">" + v + "</li>" );
+					});
+					$("<ul/>", {
+						"data": "features",
+						html: items.join( "" )
+					}).appendTo("ul[data]=features]");
+				}	
 			});
 		});
 		
@@ -81,29 +95,29 @@
 		<section>
 			<br>
 			<div class="textbox" style="max-width:900px">
-				<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>NAME</strong></p>
+				<p data="name" style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>NAME</strong></p>
 			</div>
 			<div class="container" style="padding:20px;text-align:center;">
-				<img src="/images/wip.png" alt="Preview" style="max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;">
+				<img data="image" src="/images/wip.png" alt="Preview" style="max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;">
 			</div>
 			<div class="textbox" style="min-width:375px;max-width:900px;vertical-align:top;border-width:5px;">
 				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>Summary</b><br><br>SUMMARY</p><br><br>
 				<p style="margin:auto;min-width:300;max-width:750px;text-align:center;font-size:24px;"><b>Features</b><br><br>
-					<ul style="background-color:#111;position:relative;">
-						<li style="type:disc;float:none;clear:both;font-size:24px;">FEATURES</li>
+					<ul data="features" style="background-color:#111;position:relative;">
+						
 					</ul>
 					<br>
 				</p>
 				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>File Details</b><br><br>
 					<ul style="background-color:#111;position:relative;">
-						<li style="type:disc;float:none;clear:both;font-size:24px;">Name: "NAME"</li>
-						<li style="type:disc;float:none;clear:both;font-size:24px;">File Size: SIZE</li>
-						<li style="type:disc;float:none;clear:both;font-size:24px;">Supports: PLATFORM</li>
-						<li style="type:disc;float:none;clear:both;font-size:24px;">Contains: CONTENTS</li>
+						<li data="filename" style="type:disc;float:none;clear:both;font-size:24px;">Name: "NAME"</li>
+						<li data="filesize" style="type:disc;float:none;clear:both;font-size:24px;">File Size: SIZE</li>
+						<li data="platform" style="type:disc;float:none;clear:both;font-size:24px;">Supports: PLATFORM</li>
+						<li data="contents" style="type:disc;float:none;clear:both;font-size:24px;">Contains: CONTENTS</li>
 					</ul>
 				</p>
 				<div class="container" style="padding:20px;text-align:center;">
-					<a href="DOWNLOAD" target="_blank"><img src="/images/download.png" alt="DOWNLOAD" style="max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;"></a>
+					<a data="download" href="DOWNLOAD" target="_blank"><img src="/images/download.png" alt="DOWNLOAD" style="max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;"></a>
 				</div>
 			</div>
 		</section>
