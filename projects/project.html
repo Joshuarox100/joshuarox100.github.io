@@ -58,7 +58,7 @@
 					
 					var features = [];
 					$.each( item.features, function(i, v) {
-						features.push( "<li style=\"type:disc;clear:both;font-size:24px;\">" + v + "</li>" );
+						features.push( "<li style=\"type:disc;clear:both;font-size:24px;display:block;\">" + v + "</li>" );
 					});
 					$("ul[data=features]").append(features.join(""));
 					
@@ -78,7 +78,7 @@
 		<div w3-include-html="/sections/header.html"></div>
 		
 		<nav>
-			<ul style="display:inline-block">
+			<ul>
 			  <li><a href="/#home">Home</a></li
 			  ><li><a href="/#about">About</a></li
 			  ><li><a href="/#projects" class="active">Projects</a></li
@@ -112,10 +112,10 @@
 				</p>
 				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>File Details</b><br><br>
 					<ul style="background-color:#111;position:relative;">
-						<li data="filename" style="type:disc;clear:both;font-size:24px;">Name: </li>
-						<li data="filesize" style="type:disc;clear:both;font-size:24px;">File Size: </li>
-						<li data="platform" style="type:disc;clear:both;font-size:24px;">Supports: </li>
-						<li data="contents" style="type:disc;clear:both;font-size:24px;">Contains: </li>
+						<li data="filename" style="type:disc;clear:both;font-size:24px;display:block;">Name: </li>
+						<li data="filesize" style="type:disc;clear:both;font-size:24px;display:block;">File Size: </li>
+						<li data="platform" style="type:disc;clear:both;font-size:24px;display:block;">Supports: </li>
+						<li data="contents" style="type:disc;clear:both;font-size:24px;display:block;">Contains: </li>
 					</ul>
 				</p>
 				<div class="container" style="padding:20px;text-align:center;">
