@@ -38,7 +38,7 @@
 		var projects = [];
 		var projNames = [];
 		$(document).ready(function(){
-			$.getJSON( "/pages/details.json", function( data ) {
+			$.getJSON( "/projects/details.json", function( data ) {
 				$.each( data, function( key, val ) {
 					$.each( val, function( key1, val2 ) {
 						projects.push( val2 );
