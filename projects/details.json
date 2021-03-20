@@ -1,55 +1,4 @@
 { 
-	"shaders" : [{
-		"lastUpdated" : "November 15, 2019 12:00:00 CST",
-		"page" : "AnimatedShader",
-		"name" : "Animated Shader",
-		"image" : "/images/animatedshader.gif",
-		"summary" : "The Animated Shader takes a spritesheet and plays an animation by going through each of the frames, one by one, to simulate the effect of a gif. This saves the user from having to make a animation file that goes through the texture frame by frame manually.",
-		"features" : [
-			"Animated Textures", 
-			"Adjustable Framerate", 
-			"Cutout", 
-			"Supports Emissions"
-		],
-		"status" : "Completed",
-		"hasDownload" : true,
-		"fileDetails" : {
-			"file" : "/images/animatedshader.gif",
-			"name" : "Animated_Shader.unitypackage",
-			"version" : "1.0.0",
-			"size" : "1.19 MB",
-			"supports" : "Unity 2018.4 and higher",
-			"contains" : [ 
-				"Shader", 
-				"Example Scenes"
-			]
-		}
-	},
-	{
-		"lastUpdated" : "January 21, 2020 12:00:00 CST",
-		"page" : "RevolvingFade",
-		"name" : "Revolving Fade",
-		"image" : "/images/revolvingfade.gif",
-		"summary" : "This is a fairly simple shader. Works similarly to other fade shaders, but with the added ability to spin whatever texture is applied to it continuously.",
-		"features" : [
-			"Rotating Textures", 
-			"Adjustable Speed", 
-			"Supports Emissions"
-		],
-		"status" : "Completed",
-		"hasDownload" : true,
-		"fileDetails" : {
-			"file" : "/images/revolvingfade.gif",
-			"name" : "Revolving_Fade.unitypackage",
-			"version" : "1.0.0",
-			"size" : "310 KB",
-			"supports" : "Unity 2017.4 and higher",
-			"contains" : [ 
-				"Shader", 
-				"Example Scenes"
-			]
-		}
-	}],
 	"tools" : [{
 		"lastUpdated" : "March 18, 2021 22:04:00 CDT",
 		"page" : "InventoryInventor",
@@ -105,6 +54,57 @@
 			]
 		}
 	}],
+	"shaders" : [{
+		"lastUpdated" : "November 15, 2019 12:00:00 CST",
+		"page" : "AnimatedShader",
+		"name" : "Animated Shader",
+		"image" : "/images/animatedshader.gif",
+		"summary" : "The Animated Shader takes a spritesheet and plays an animation by going through each of the frames, one by one, to simulate the effect of a gif. This saves the user from having to make a animation file that goes through the texture frame by frame manually.",
+		"features" : [
+			"Animated Textures", 
+			"Adjustable Framerate", 
+			"Cutout", 
+			"Supports Emissions"
+		],
+		"status" : "Completed",
+		"hasDownload" : true,
+		"fileDetails" : {
+			"file" : "/images/animatedshader.gif",
+			"name" : "Animated_Shader.unitypackage",
+			"version" : "1.0.0",
+			"size" : "1.19 MB",
+			"supports" : "Unity 2018.4 and higher",
+			"contains" : [ 
+				"Shader", 
+				"Example Scenes"
+			]
+		}
+	},
+	{
+		"lastUpdated" : "January 21, 2020 12:00:00 CST",
+		"page" : "RevolvingFade",
+		"name" : "Revolving Fade",
+		"image" : "/images/revolvingfade.gif",
+		"summary" : "This is a fairly simple shader. Works similarly to other fade shaders, but with the added ability to spin whatever texture is applied to it continuously.",
+		"features" : [
+			"Rotating Textures", 
+			"Adjustable Speed", 
+			"Supports Emissions"
+		],
+		"status" : "Completed",
+		"hasDownload" : true,
+		"fileDetails" : {
+			"file" : "/images/revolvingfade.gif",
+			"name" : "Revolving_Fade.unitypackage",
+			"version" : "1.0.0",
+			"size" : "310 KB",
+			"supports" : "Unity 2017.4 and higher",
+			"contains" : [ 
+				"Shader", 
+				"Example Scenes"
+			]
+		}
+	}],
 	"games" : [{
 		"lastUpdated" : "January 28, 2020 15:26:00 CDT",
 		"page" : "Minesweeper",
@@ -131,7 +131,7 @@
 		}
 	},
 	{
-		"lastUpdated" : "January 31, 2020 03:22:00 CDT",
+		"lastUpdated" : "January 12, 2020 03:22:00 CDT",
 		"page" : "UnityVRGame",
 		"name" : "Unity VR Game (No Name)",
 		"image" : "/images/wip.png",
@@ -151,7 +151,7 @@
 		}
 	},
 	{
-		"lastUpdated" : "January 31, 2020 03:22:00 CDT",
+		"lastUpdated" : "January 12, 2020 03:22:00 CDT",
 		"page" : "VisualNovel",
 		"name" : "Visual Novel (No Name)",
 		"image" : "/images/wip.png",

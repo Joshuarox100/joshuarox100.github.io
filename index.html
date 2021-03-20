@@ -50,7 +50,7 @@
 							return false;
 						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 					});
-					projects.push(items);
+					projects.push(items.reverse());
 				});
 				var featured = [projects[0][0], projects[1][0], projects[2][0]];
 				$("div[data-home=featured]").append(featured.join(""));
