@@ -59,7 +59,14 @@
 				document.title = item.name;
 				
 				$("p[data=name]").append(item.name);
+				
 				$("div[data=image]").append("<img src=\"" + item.image + "\" alt=\"Preview\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
+				if (project.status == "WIP")
+					$("div[data=image]").append("<img class=\"overlay\" src=\"/images/wip.png\" alt=\"WIP\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
+				else if (project.status == "Hold")
+					$("div[data=image]").append("<img class=\"overlay\" src=\"/images/hold.png\" alt=\"On Hold\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
+				else if (project.status == "Archived")
+					$("div[data=image]").append("<img class=\"overlay\" src=\"/images/archived.png\" alt=\"Archived\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
 				
 				$("p[data=summary]").append(item.summary);
 				var features = [];

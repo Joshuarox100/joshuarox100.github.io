@@ -51,11 +51,11 @@
 						return false;
 					
 					if (project.status == "WIP")
-						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><div data-content=\"/images/wip.png\" class=\"image\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></div></a><div class=\"desc\">" + project.name + "</div></div></div>");
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"><img class=\"overlay\" src=\"/images/wip.png\" alt=\"WIP\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 					else if (project.status == "Hold")
-						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><div data-content=\"/images/hold.png\" class=\"image\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></div></a><div class=\"desc\">" + project.name + "</div></div></div>");
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"><img class=\"overlay\" src=\"/images/hold.png\" alt=\"On Hold\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 					else if (project.status == "Archived")
-						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><div data-content=\"/images/archived.png\" class=\"image\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></div></a><div class=\"desc\">" + project.name + "</div></div></div>");
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"><img class=\"overlay\" src=\"/images/archived.png\" alt=\"Archived\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 					else
 						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 				});
