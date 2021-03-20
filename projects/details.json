@@ -86,7 +86,7 @@
 			"Light & Dark Theme"
 		],
 		"status" : "On Hold",
-		"hasGitHub" : true,
+		"hasDownload" : true,
 		"fileDetails" : {
 			"file" : "/images/ytdlgui.png",
 			"name" : "Youtube-DL.GUI.0.5.2.zip",
