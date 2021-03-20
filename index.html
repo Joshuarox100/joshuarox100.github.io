@@ -16,7 +16,25 @@
 		$(document).ready(function(){
 			$('.menu').on('click', '.menu-btn', function(e) {
 				showContent(e.currentTarget.hash.slice(1));
-			}); 			
+			}); 
+
+			history.pushState = ( f => function pushState(){
+				var ret = f.apply(this, arguments);
+				window.dispatchEvent(new Event('pushstate'));
+				window.dispatchEvent(new Event('locationchange'));
+				return ret;
+			})(history.pushState);
+
+			history.replaceState = ( f => function replaceState(){
+				var ret = f.apply(this, arguments);
+				window.dispatchEvent(new Event('replacestate'));
+				window.dispatchEvent(new Event('locationchange'));
+				return ret;
+			})(history.replaceState);
+
+			window.addEventListener('popstate',()=>{
+				window.dispatchEvent(new Event('locationchange'))
+			});
 		});
 		</script>
 	</head>
@@ -29,8 +47,6 @@
 			})
 			
 			var hash = location.hash.replace('#', '');
-			console.log(content);
-			console.log(hash);
 			if (hash != "" && content.includes(hash))
 				showContent(hash);
 			else
@@ -39,6 +55,10 @@
 				showContent('home');
 			}	
 		});
+		
+		window.addEventListener('locationchange', function(){
+			console.log('location changed!');
+		})
 		
 		function showContent(type) {
 		  $.each(content, function(i, v){

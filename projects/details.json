@@ -1,0 +1,75 @@
+{ 
+	"shaders" : [{
+		"name" : "Animated Shader",
+		"image" : "/images/animatedshader.gif",
+		"summary" : "The Animated Shader takes a spritesheet and plays an animation by going through each of the frames, one by one, to simulate the effect of a gif. This saves the user from having to make a animation file that goes through the texture frame by frame manually.",
+		"features" : [
+			"Animated Textures", 
+			"Adjustable Framerate", 
+			"Cutout", 
+			"Supports Emissions"
+		],
+		"status" : "Completed",
+		"hasDownload" : true,
+		"fileDetails" : {
+			"file" : "/images/animatedshader.gif",
+			"name" : "Animated_Shader.unitypackage",
+			"version" : "1.0.0",
+			"size" : "1.19 MB",
+			"supports" : "Unity 2018.4 and higher",
+			"contains" : [ 
+				"Shader", 
+				"Example Scenes"
+			]
+		}
+	}],
+	"tools" : [{
+		"name" : "Youtube-DL GUI (Java Edition)",
+		"image" : "/images/ytdlgui.png",
+		"summary" : "After the only other GUI for this application on github made my computer blue screen, I decided to start working on this. <a href=\"https://github.com/ytdl-org/youtube-dl\" target=\"_blank\">Youtube-DL</a> is a command-line program made for downloading videos from YouTube and other sites. However, because it lacks a user interface (and most people aren't going to bother learning to use command prompt), I decided to work on a user-friendly interface for the program.",
+		"features" : [
+			"Queued Downloads", 
+			"Playlist Support", 
+			"Multiple Formats", 
+			"Light & Dark Theme"
+		],
+		"status" : "On Hold",
+		"hasDownload" : true,
+		"fileDetails" : {
+			"file" : "/images/ytdlgui.png",
+			"name" : "Youtube-DL.GUI.0.5.2.zip",
+			"version" : "0.5.2",
+			"size" : "173 MB",
+			"supports" : "Windows 10",
+			"contains" : [ 
+				"Executable", 
+				"Java Runtime Environment",
+				"Youtube-DL",
+				"FFMPEG"
+			]
+		}
+	}],
+	"games" : [{
+		"name" : "Minesweeper",
+		"image" : "/images/minesweeper.gif",
+		"summary" : "Reveal tiles, plant flags, you know the drill. Uncovered tiles will show how many of the surrounding eight tiles have mines on them, if any. Right click to plant a flag on tiles you think have mines. The game is won once all tiles without mines have been revealed. Good luck!",
+		"features" : [
+			"Multiple Difficulties", 
+			"Saving and Loading", 
+			"Explosion \"Effects\""
+		],
+		"status" : "Archived",
+		"hasDownload" : true,
+		"fileDetails" : {
+			"file" : "/images/minesweeper.gif",
+			"name" : "Minesweeper.zip",
+			"version" : "0.8.4",
+			"size" : "38.6 MB",
+			"supports" : "Windows 10",
+			"contains" : [ 
+				"Executable", 
+				"Java Runtime Environment"
+			]
+		}
+	}]
+}
