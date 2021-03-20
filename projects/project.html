@@ -49,7 +49,7 @@
 			var hash = location.hash.replace('#', '');
 			console.log(hash);
 			if (hash == "" || !projects.includes(hash))
-				window.location.replace("../#home");
+				console.log("first: " + (hash == "") + " second: " + (!projects.includes(hash)));
 			else
 				document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
 		});
