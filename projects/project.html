@@ -43,11 +43,10 @@
 						projects.push( val.page );
 					});
 				});
-				console.log(projects);
+
 				var hash = location.hash.replace('#', '');
-				console.log(hash);
 				if (hash == "" || !projects.includes(hash))
-					console.log("first: " + (hash == "") + " second: " + (!projects.includes(hash)));
+					window.location.replace("../#projects");
 				else
 					document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
 			});
