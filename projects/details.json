@@ -1,5 +1,6 @@
 { 
 	"shaders" : [{
+		"page" : "animatedShader",
 		"name" : "Animated Shader",
 		"image" : "/images/animatedshader.gif",
 		"summary" : "The Animated Shader takes a spritesheet and plays an animation by going through each of the frames, one by one, to simulate the effect of a gif. This saves the user from having to make a animation file that goes through the texture frame by frame manually.",
@@ -24,6 +25,7 @@
 		}
 	}],
 	"tools" : [{
+		"page" : "ytdlgui",
 		"name" : "Youtube-DL GUI (Java Edition)",
 		"image" : "/images/ytdlgui.png",
 		"summary" : "After the only other GUI for this application on github made my computer blue screen, I decided to start working on this. <a href=\"https://github.com/ytdl-org/youtube-dl\" target=\"_blank\">Youtube-DL</a> is a command-line program made for downloading videos from YouTube and other sites. However, because it lacks a user interface (and most people aren't going to bother learning to use command prompt), I decided to work on a user-friendly interface for the program.",
@@ -50,6 +52,7 @@
 		}
 	}],
 	"games" : [{
+		"page" : "minesweeper",
 		"name" : "Minesweeper",
 		"image" : "/images/minesweeper.gif",
 		"summary" : "Reveal tiles, plant flags, you know the drill. Uncovered tiles will show how many of the surrounding eight tiles have mines on them, if any. Right click to plant a flag on tiles you think have mines. The game is won once all tiles without mines have been revealed. Good luck!",
