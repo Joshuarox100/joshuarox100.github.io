@@ -36,20 +36,42 @@
 	</head>
 	<script>
 		var content = [];
+		var projects = [];
 		$(document).ready(function(){
-			var getChild = $("#menu-content").children();
-			getChild.each(function(i,v){
-				content.push(($(v).data('menu-content')));
-			})
-			
-			var hash = location.hash.replace('#', '');
-			if (hash != "" && content.includes(hash))
-				showContent(hash);
-			else
-			{
-				location.href = '#home';
-				showContent('home');
-			}	
+			$.getJSON( "/projects/details.json", function( data ) {
+				var groups = [];
+				$.each( data, function( i, group ) {
+					groups.push(group.sort((a, b) => (new Date(a.lastUpdated) > new Date(b.lastUpdated)) ? 1 : (new Date(a.lastUpdated) === new Date(b.lastUpdated)) ? ((a.name < b.name) ? 1 : -1) : -1 ));
+				});
+				$.each( groups, function( index, group ) {
+					var items = [];
+					$.each( group, function( index, project ) {
+						if (index > 2)
+							return false;
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					});
+					projects.push(items);
+				});
+				var featured = [projects[0][0], projects[1][0], projects[2][0]];
+				$("div[data-home=featured]").append(featured.join(""));
+				$("div[data-projects=tools]").append(projects[0].join(""));
+				$("div[data-projects=shaders]").append(projects[1].join(""));
+				$("div[data-projects=games]").append(projects[2].join(""));
+				
+				var getChild = $("#menu-content").children();
+				getChild.each(function(i,v){
+					content.push(($(v).data('menu-content')));
+				})
+				
+				var hash = location.hash.replace('#', '');
+				if (hash != "" && content.includes(hash))
+					showContent(hash);
+				else
+				{
+					location.href = '#home';
+					showContent('home');
+				}
+			});
 		});
 		
 		window.addEventListener('locationchange', function(){
