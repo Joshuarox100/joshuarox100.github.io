@@ -67,61 +67,21 @@
 					
 					if (item.hasDownload)
 					{
-						if (item.hasGitHub)
-							UseLatestReleaseInfo(item);
+						$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
+						$("li[data=filesize]").append(item.fileDetails.size);
+						if (item.fileDetails.version != "")
+							$("li[data=version]").append(item.fileDetails.version);
 						else
-						{
-							$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
-							$("li[data=filesize]").append(item.fileDetails.size);
-							$("li[data=platform]").append(item.fileDetails.supports);
-							$("li[data=contents]").append(item.fileDetails.contains.join(", "));
-							$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
-						}
+							$("li[data=version]").hide();
+						$("li[data=platform]").append(item.fileDetails.supports);
+						$("li[data=contents]").append(item.fileDetails.contains.join(", "));
+						$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
 					}
 					else
 						$("div[data=fileDetails]").hide();
 				}	
 			});
 		});
-		
-		function UseLatestReleaseInfo(item) {
-			$.getJSON("https://api.github.com/repos/" + item.repoLink + "/releases").done(function(data) {
-				var latest = [];
-				var latestDate = new Date(-8640000000000000);
-				$.each(data, function(i, v) {
-					var asset = v.assets[0];
-					if (new Date(asset.updated_at) > latestDate)
-					{
-						latest = [v];
-						latestDate = new Date(asset.updated_at);
-					}
-				});
-				if (latest.length > 0)
-				{
-					var asset = latest[0].assets[0];
-					$("li[data=filename]").append("\"" + asset.name + "\"");
-					var sizeKB = asset.size;
-					var sizeMB = sizeKB / 1024;
-					if (sizeMB > 1)
-						$("li[data=filesize]").append(Math.floor(sizeMB));
-					else
-						$("li[data=filesize]").append(sizeKB);
-					if (item.fileDetails.supports != "")
-						$("li[data=platform]").append(item.fileDetails.supports);
-					else
-						$("li[data=platform]").hide();
-					if (item.fileDetails.contains.length > 0)
-						$("li[data=contents]").append(item.fileDetails.contains.join(", "));
-					else
-						$("li[data=contents]").hide();
-					$("div[data=download]").append("<a href=\"" + asset.browser_download_url + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
-				}
-				else
-				{
-					$("div[data=fileDetails]").hide();
-				}
-			});
-		}
 		
 		window.addEventListener('locationchange', function(){
 			location.reload();
@@ -167,6 +127,7 @@
 						<ul style="background-color:#111;position:relative;">
 							<li data="filename" style="type:disc;clear:both;font-size:24px;display:block;">Name: </li>
 							<li data="filesize" style="type:disc;clear:both;font-size:24px;display:block;">File Size: </li>
+							<li data="version" style="type:disc;clear:both;font-size:24px;display:block;">Verison: </li>
 							<li data="platform" style="type:disc;clear:both;font-size:24px;display:block;">Supports: </li>
 							<li data="contents" style="type:disc;clear:both;font-size:24px;display:block;">Contains: </li>
 						</ul>
