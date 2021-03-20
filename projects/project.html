@@ -38,7 +38,6 @@
 		var projects = [];
 		$(document).ready(function(){
 			$.getJSON( "/projects/details.json", function( data ) {
-				var items = [];
 				$.each( data, function( key, val ) {
 					$.each( val, function( key, val ) {
 						projects.push( val.page );
@@ -49,7 +48,10 @@
 			console.log(projects);
 			var hash = location.hash.replace('#', '');
 			console.log(hash);
-			
+			if (hash == "" || !projects.includes(hash))
+				window.location.replace("../#home");
+			else
+				document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
 		});
 		
 		window.addEventListener('locationchange', function(){
@@ -84,7 +86,7 @@
 				<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>NAME</strong></p>
 			</div>
 			<div class="container" style="padding:20px;text-align:center;">
-				<img src="IMAGE" alt="Preview" style="max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;">
+				<img src="/images/wip.png" alt="Preview" style="max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;">
 			</div>
 			<div class="textbox" style="min-width:375px;max-width:900px;vertical-align:top;border-width:5px;">
 				<p style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>Summary</b><br><br>SUMMARY</p><br><br>
