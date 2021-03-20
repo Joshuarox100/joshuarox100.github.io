@@ -27,7 +27,7 @@
 	{
 		"page" : "RevolvingFade",
 		"name" : "Revolving Fade",
-		"image" : "/images/RevolvingFade.gif",
+		"image" : "/images/revolvingfade.gif",
 		"summary" : "This is a fairly simple shader. Works similarly to other fade shaders, but with the added ability to spin whatever texture is applied to it continuously.",
 		"features" : [
 			"Rotating Textures", 
@@ -37,7 +37,7 @@
 		"status" : "Completed",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "/images/RevolvingFade.gif",
+			"file" : "/images/revolvingfade.gif",
 			"name" : "Revolving_Fade.unitypackage",
 			"version" : "1.0.0",
 			"size" : "310 KB",
