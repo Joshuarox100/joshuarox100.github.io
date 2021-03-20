@@ -49,6 +49,32 @@
 		}
 	}],
 	"tools" : [{
+		"page" : "InventoryInventor",
+		"name" : "Inventory Inventor",
+		"image" : "/images/wip.png",
+		"summary" : "Make inventories fast with Inventory Inventor! With it, you can create inventories with plenty of toggles, all managed by a single Expression Parameter! <i>(Disclamer: You can choose to use more parameters if you want to save the state of items in the Inventory.)</i><br>This tool is meant for usage with Unity when creating Avatars for VRChat.",
+		"features" : [
+			"Presets for Saving Inventory Configurations", 
+			"Comprehensive and User-Friendly Interface", 
+			"Capable of Importing Certain Asset Types",
+			"Automatic Update Checking and Installing"
+		],
+		"status" : "Completed",
+		"hasDownload" : true,
+		"fileDetails" : {
+			"file" : "https://github.com/Joshuarox100/VRC-Inventory-Inventor/releases/download/v1.2.0/Inventory.Inventor.1.2.0.unitypackage",
+			"name" : "Inventory.Inventor.1.2.0.unitypackage",
+			"version" : "1.2.0",
+			"size" : "695 KB",
+			"supports" : "Unity 2018.4.20f1 (Must have VRCSDK3)",
+			"contains" : [ 
+				"Editor Scripts", 
+				"Example Assets",
+				"BMB Libraries"
+			]
+		}
+	},
+	{
 		"page" : "Ytdlgui",
 		"name" : "Youtube-DL GUI (Java Edition)",
 		"image" : "/images/ytdlgui.png",
