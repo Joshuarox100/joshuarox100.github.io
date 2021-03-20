@@ -54,7 +54,7 @@
 					var item = projects[projNames.indexOf(hash)];
 					document.title = item.name;
 					$("p[data=name]").append(item.name);
-					$("img[data=image]").src = item.image;
+					$("div[data=image]").append("<img src=\"" + item.image + "\" alt=\"Preview\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
 					
 					$("p[data=summary]").append(item.summary);
 					var features = [];
@@ -67,7 +67,7 @@
 					$("li[data=filesize]").append(item.fileDetails.size);
 					$("li[data=platform]").append(item.fileDetails.supports);
 					$("li[data=contents]").append(item.fileDetails.contains.join(", "));
-					$("a[data=download]").href = item.fileDetails.file;
+					$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
 				}	
 			});
 		});
@@ -103,8 +103,7 @@
 			<div class="textbox" style="max-width:900px">
 				<strong><p data="name" style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"></p></strong>
 			</div>
-			<div class="container" style="padding:20px;text-align:center;">
-				<img data="image" src="/images/wip.png" alt="Preview" style="max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;">
+			<div data="image" class="container" style="padding:20px;text-align:center;">
 			</div>
 			<div class="textbox" style="min-width:375px;max-width:900px;vertical-align:top;border-width:5px;">
 				<p data="summary" style="margin:auto;min-width:300px;max-width:750px;text-align:center;font-size:24px;"><b>Summary</b><br><br></p><br><br>
@@ -120,8 +119,7 @@
 						<li data="contents" style="type:disc;clear:both;font-size:24px;display:block;">Contains: </li>
 					</ul>
 				</p>
-				<div class="container" style="padding:20px;text-align:center;">
-					<a data="download" href="not_found" target="_blank"><img src="/images/download.png" alt="DOWNLOAD" style="max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;"></a>
+				<div data="download" class="container" style="padding:20px;text-align:center;">
 				</div>
 			</div>
 		</section>
