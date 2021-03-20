@@ -36,32 +36,37 @@
 	</head>
 	<script>
 		var groups = ["shaders", "tools", "games"];
+		var projects = [];
+		
+		$.holdReady(true);
+		$.getJSON( "/projects/details.json", function( data ) {
+			projects = data;
+			$.holdReady(false);
+		});
 		
 		$(document).ready(function(){
-			$.getJSON( "/projects/details.json", function( data ) {
-				var hash = location.hash.replace('#', '');
-				if (hash == "" || !groups.includes(hash))
-					window.location.replace("../#projects");
-				else
-				{
-					var root = [];
-					if (hash == "tools")
-						root = data.tools;
-					else if (hash == "shaders")
-						root = data.shaders;
-					else if (hash == "games")
-						root = data.games;
-					document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
-					$("p[data=title]").append(hash.charAt(0).toUpperCase() + hash.slice(1));
-					
-					var items = [];
-					$.each( root, function( index, project ) {
-						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
-					});
-					items.sort((a, b) => (a.name < b.name) ? 1 : (a.name === b.name) ? ((a.page < b.page) ? 1 : -1) : -1 )
-					$("div[data=items]").append(items.join(""));
-				}	
-			});
+			var hash = location.hash.replace('#', '');
+			if (hash == "" || !groups.includes(hash))
+				window.location.replace("../#projects");
+			else
+			{
+				var root = [];
+				if (hash == "tools")
+					root = projects.tools;
+				else if (hash == "shaders")
+					root = projects.shaders;
+				else if (hash == "games")
+					root = projects.games;
+				document.title = hash.charAt(0).toUpperCase() + hash.slice(1);
+				$("p[data=title]").append(hash.charAt(0).toUpperCase() + hash.slice(1));
+				
+				var items = [];
+				$.each( root, function( index, project ) {
+					items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+				});
+				items.sort((a, b) => (a.name < b.name) ? 1 : (a.name === b.name) ? ((a.page < b.page) ? 1 : -1) : -1 )
+				$("div[data=items]").append(items.join(""));
+			}	
 		});
 		
 		window.addEventListener('locationchange', function(){

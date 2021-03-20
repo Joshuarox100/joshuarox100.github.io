@@ -38,49 +38,51 @@
 		var projects = [];
 		var projNames = [];
 		
-		$(document).ready(function(){
-			$.getJSON( "/projects/details.json", function( data ) {
-				$.each( data, function( key, val ) {
-					$.each( val, function( key1, val2 ) {
-						projects.push( val2 );
-						projNames.push( val2.page );
-					});
+		$.holdReady(true);
+		$.getJSON( "/projects/details.json", function( data ) {
+			$.each( data, function( key, val ) {
+				$.each( val, function( key1, val2 ) {
+					projects.push( val2 );
+					projNames.push( val2.page );
 				});
-
-				var hash = location.hash.replace('#', '');
-				if (hash == "" || !projNames.includes(hash))
-					window.location.replace("../#projects");
-				else
-				{
-					var item = projects[projNames.indexOf(hash)];
-					document.title = item.name;
-					
-					$("p[data=name]").append(item.name);
-					$("div[data=image]").append("<img src=\"" + item.image + "\" alt=\"Preview\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
-					
-					$("p[data=summary]").append(item.summary);
-					var features = [];
-					$.each( item.features, function(i, v) {
-						features.push( "<li style=\"type:disc;clear:both;font-size:24px;display:block;\">" + v + "</li>" );
-					});
-					$("ul[data=features]").append(features.join(""));
-					
-					if (item.hasDownload)
-					{
-						$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
-						$("li[data=filesize]").append(item.fileDetails.size);
-						if (item.fileDetails.version != "")
-							$("li[data=version]").append(item.fileDetails.version);
-						else
-							$("li[data=version]").hide();
-						$("li[data=platform]").append(item.fileDetails.supports);
-						$("li[data=contents]").append(item.fileDetails.contains.join(", "));
-						$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
-					}
-					else
-						$("div[data=fileDetails]").hide();
-				}	
 			});
+			$.holdReady(false);
+		});
+		
+		$(document).ready(function(){
+			var hash = location.hash.replace('#', '');
+			if (hash == "" || !projNames.includes(hash))
+				window.location.replace("../#projects");
+			else
+			{
+				var item = projects[projNames.indexOf(hash)];
+				document.title = item.name;
+				
+				$("p[data=name]").append(item.name);
+				$("div[data=image]").append("<img src=\"" + item.image + "\" alt=\"Preview\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
+				
+				$("p[data=summary]").append(item.summary);
+				var features = [];
+				$.each( item.features, function(i, v) {
+					features.push( "<li style=\"type:disc;clear:both;font-size:24px;display:block;\">" + v + "</li>" );
+				});
+				$("ul[data=features]").append(features.join(""));
+				
+				if (item.hasDownload)
+				{
+					$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
+					$("li[data=filesize]").append(item.fileDetails.size);
+					if (item.fileDetails.version != "")
+						$("li[data=version]").append(item.fileDetails.version);
+					else
+						$("li[data=version]").hide();
+					$("li[data=platform]").append(item.fileDetails.supports);
+					$("li[data=contents]").append(item.fileDetails.contains.join(", "));
+					$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
+				}
+				else
+					$("div[data=fileDetails]").hide();
+			}	
 		});
 		
 		window.addEventListener('locationchange', function(){
