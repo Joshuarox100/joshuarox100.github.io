@@ -65,7 +65,6 @@
 					});
 					$("ul[data=features]").append(features.join(""));
 					
-					
 					if (item.hasDownload)
 					{
 						if (item.hasGitHub)
@@ -87,7 +86,6 @@
 		
 		function UseLatestReleaseInfo(item) {
 			$.getJSON("https://api.github.com/repos/" + item.repoLink + "/releases").done(function(data) {
-				console.log(data);
 				var latest = [];
 				var latestDate = new Date(-8640000000000000);
 				$.each(data, function(i, v) {
@@ -105,7 +103,7 @@
 					var sizeKB = asset.size;
 					var sizeMB = sizeKB / 1024;
 					if (sizeMB > 1)
-						$("li[data=filesize]").append(sizeMB);
+						$("li[data=filesize]").append(Math.floor(sizeMB));
 					else
 						$("li[data=filesize]").append(sizeKB);
 					if (item.fileDetails.supports != "")
