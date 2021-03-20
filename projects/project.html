@@ -54,8 +54,9 @@
 					var item = projects[projNames.indexOf(hash)];
 					document.title = item.name;
 					$("p[data=name]").append(item.name);
-					$("p[data=summary]").append(item.summary);
+					$("img[data=image]").src = item.image;
 					
+					$("p[data=summary]").append(item.summary);
 					var features = [];
 					$.each( item.features, function(i, v) {
 						features.push( "<li style=\"type:disc;clear:both;font-size:24px;display:block;\">" + v + "</li>" );
@@ -66,6 +67,7 @@
 					$("li[data=filesize]").append(item.fileDetails.size);
 					$("li[data=platform]").append(item.fileDetails.supports);
 					$("li[data=contents]").append(item.fileDetails.contains.join(", "));
+					$("a[data=download]").href = item.fileDetails.file;
 				}	
 			});
 		});
@@ -119,7 +121,7 @@
 					</ul>
 				</p>
 				<div class="container" style="padding:20px;text-align:center;">
-					<a data="download" href="DOWNLOAD" target="_blank"><img src="/images/download.png" alt="DOWNLOAD" style="max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;"></a>
+					<a data="download" target="_blank"><img src="/images/download.png" alt="DOWNLOAD" style="max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;"></a>
 				</div>
 			</div>
 		</section>
