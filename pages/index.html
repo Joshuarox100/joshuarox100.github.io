@@ -62,7 +62,14 @@
 				
 				var items = [];
 				$.each( root, function( index, project ) {
-					items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					if (project.status == "WIP")
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"><img class=\"overlay\" src=\"/images/wip.png\" alt=\"WIP\" width=\"600\" height=\"400\" style=\"position:absolute;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else if (project.status == "Hold")
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"><img class=\"overlay\" src=\"/images/hold.png\" alt=\"On Hold\" width=\"600\" height=\"400\" style=\"position:absolute;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else if (project.status == "Archived")
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"><img class=\"overlay\" src=\"/images/archived.png\" alt=\"Archived\" width=\"600\" height=\"400\" style=\"position:absolute;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else
+						items.push("<div class=\"responsive\"><div class=\"gallery\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 				});
 				items.sort((a, b) => (a.name < b.name) ? 1 : (a.name === b.name) ? ((a.page < b.page) ? 1 : -1) : -1 )
 				$("div[data=items]").append(items.join(""));
