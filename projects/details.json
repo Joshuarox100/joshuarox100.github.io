@@ -1,5 +1,6 @@
 { 
 	"tools" : [{
+		"display" : true,
 		"lastUpdated" : "March 18, 2021 22:04:00 CDT",
 		"page" : "InventoryInventor",
 		"name" : "Inventory Inventor",
@@ -27,6 +28,7 @@
 		}
 	},
 	{
+		"display" : true,
 		"lastUpdated" : "August 17, 2019 22:21:00 CDT",
 		"page" : "Ytdlgui",
 		"name" : "Youtube-DL GUI (Java Edition)",
@@ -55,6 +57,7 @@
 		}
 	}],
 	"shaders" : [{
+		"display" : true,
 		"lastUpdated" : "November 15, 2019 12:00:00 CST",
 		"page" : "AnimatedShader",
 		"name" : "Animated Shader",
@@ -81,6 +84,7 @@
 		}
 	},
 	{
+		"display" : true,
 		"lastUpdated" : "January 21, 2020 12:00:00 CST",
 		"page" : "RevolvingFade",
 		"name" : "Revolving Fade",
@@ -106,6 +110,7 @@
 		}
 	}],
 	"games" : [{
+		"display" : true,
 		"lastUpdated" : "January 28, 2020 15:26:00 CDT",
 		"page" : "Minesweeper",
 		"name" : "Minesweeper",
@@ -131,6 +136,7 @@
 		}
 	},
 	{
+		"display" : false,
 		"lastUpdated" : "January 12, 2020 03:22:00 CDT",
 		"page" : "UnityVRGame",
 		"name" : "Unity VR Game (No Name)",
@@ -151,6 +157,7 @@
 		}
 	},
 	{
+		"display" : false,
 		"lastUpdated" : "January 12, 2020 03:22:00 CDT",
 		"page" : "VisualNovel",
 		"name" : "Visual Novel (No Name)",

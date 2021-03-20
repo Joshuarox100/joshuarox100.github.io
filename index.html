@@ -49,6 +49,8 @@
 				$.each( group, function( index, project ) {
 					if (index > 2)
 						return false;
+					else if (!project.display)
+						return true;
 					
 					if (project.status == "WIP")
 						items.push("<div class=\"responsive\"><div class=\"gallery\" style=\"position:relative;top:0;left:0;\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"><img class=\"overlay\" src=\"/images/wip.png\" alt=\"WIP\" width=\"600\" height=\"400\" style=\"position:absolute;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
