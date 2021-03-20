@@ -11,6 +11,8 @@
 			"Supports Emissions"
 		],
 		"status" : "Completed",
+		"hasGitHub" : false,
+		"repoLink" : "",
 		"hasDownload" : true,
 		"fileDetails" : {
 			"file" : "/images/animatedshader.gif",
@@ -35,6 +37,8 @@
 			"Supports Emissions"
 		],
 		"status" : "Completed",
+		"hasGitHub" : false,
+		"repoLink" : "",
 		"hasDownload" : true,
 		"fileDetails" : {
 			"file" : "/images/revolvingfade.gif",
@@ -60,12 +64,14 @@
 			"Automatic Update Checking and Installing"
 		],
 		"status" : "Completed",
+		"hasGitHub" : true,
+		"repoLink" : "Joshuarox100/VRC-Inventory-Inventor",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "https://github.com/Joshuarox100/VRC-Inventory-Inventor/releases/download/v1.2.0/Inventory.Inventor.1.2.0.unitypackage",
-			"name" : "Inventory.Inventor.1.2.0.unitypackage",
-			"version" : "1.2.0",
-			"size" : "695 KB",
+			"file" : "Inventory.Inventor",
+			"name" : "",
+			"version" : "",
+			"size" : "",
 			"supports" : "Unity 2018.4.20f1 (Must have VRCSDK3)",
 			"contains" : [ 
 				"Editor Scripts", 
@@ -86,6 +92,8 @@
 			"Light & Dark Theme"
 		],
 		"status" : "On Hold",
+		"hasGitHub" : true,
+		"repoLink" : "",
 		"hasDownload" : true,
 		"fileDetails" : {
 			"file" : "/images/ytdlgui.png",
@@ -112,6 +120,8 @@
 			"Explosion \"Effects\""
 		],
 		"status" : "Archived",
+		"hasGitHub" : false,
+		"repoLink" : "",
 		"hasDownload" : true,
 		"fileDetails" : {
 			"file" : "/images/minesweeper.gif",
@@ -134,6 +144,8 @@
 			"To Be Decided"
 		],
 		"status" : "On Hold",
+		"hasGitHub" : false,
+		"repoLink" : "",
 		"hasDownload" : false,
 		"fileDetails" : {
 			"file" : "/images/wip.png",
@@ -156,6 +168,8 @@
 			"Several Characters"
 		],
 		"status" : "On Hold",
+		"hasGitHub" : false,
+		"repoLink" : "",
 		"hasDownload" : false,
 		"fileDetails" : {
 			"file" : "/images/wip.png",

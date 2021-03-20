@@ -37,6 +37,8 @@
 	<script>
 		var projects = [];
 		var projNames = [];
+		var latestRelease = [];
+		
 		$(document).ready(function(){
 			$.getJSON( "/projects/details.json", function( data ) {
 				$.each( data, function( key, val ) {
@@ -53,6 +55,7 @@
 				{
 					var item = projects[projNames.indexOf(hash)];
 					document.title = item.name;
+					
 					$("p[data=name]").append(item.name);
 					$("div[data=image]").append("<img src=\"" + item.image + "\" alt=\"Preview\" style=\"max-width:100%;max-height:auto;border-style:solid;border-width:5px;border-color:#B80000;\">");
 					
@@ -63,19 +66,68 @@
 					});
 					$("ul[data=features]").append(features.join(""));
 					
+					
 					if (item.hasDownload)
 					{
-						$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
-						$("li[data=filesize]").append(item.fileDetails.size);
-						$("li[data=platform]").append(item.fileDetails.supports);
-						$("li[data=contents]").append(item.fileDetails.contains.join(", "));
-						$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
+						if (item.hasGitHub)
+						{
+							UseLatestReleaseInfo(item);
+							if (latestRelease.length > 0)
+							{
+								var asset = latestRelease[0].assets[0];
+								$("li[data=filename]").append("\"" + asset.name + "\"");
+								var sizeKB = asset.size;
+								var sizeMB = sizeKB / 1024;
+								if (sizeMB > 1)
+									$("li[data=filesize]").append(sizeMB);
+								else
+									$("li[data=filesize]").append(sizeKB);
+								if (item.fileDetails.supports != "")
+									$("li[data=platform]").append(item.fileDetails.supports);
+								else
+									$("li[data=platform]").hide();
+								if (item.fileDetails.contains.length > 0)
+									$("li[data=contents]").append(item.fileDetails.contains.join(", "));
+								else
+									$("li[data=contents]").hide();
+								$("div[data=download]").append("<a href=\"" + asset.browser_download_url + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
+							}
+							else
+							{
+								$("div[data=fileDetails]").hide();
+							}
+						}
+						else
+						{
+							$("li[data=filename]").append("\"" + item.fileDetails.name + "\"");
+							$("li[data=filesize]").append(item.fileDetails.size);
+							$("li[data=platform]").append(item.fileDetails.supports);
+							$("li[data=contents]").append(item.fileDetails.contains.join(", "));
+							$("div[data=download]").append("<a href=\"" + item.fileDetails.file + "\" target=\"_blank\"><img src=\"/images/download.png\" alt=\"DOWNLOAD\" style=\"max-width:50%;max-height:auto;border-radius:8px;border-style:solid;border-color:white;border-width:2px;\"></a>");
+						}
 					}
 					else
 						$("div[data=fileDetails]").hide();
 				}	
 			});
 		});
+		
+		function GetLatestReleaseInfo(item) {
+			$.getJSON("https://api.github.com/repos/" + item.repoLink + "/releases").done(function(data) {
+				var latest = [];
+				var latestDate = new Date(-8640000000000000);
+				$.each(data, function(i, v) {
+					var asset = v.assets[0];
+					if (new Date(asset.updated_at) > latestDate)
+					{
+						latest = [v];
+						latestDate = new Date(asset.updated_at);
+					}
+				});
+				if (latest.length > 0)
+					latestRelease = latest;
+			});
+		}
 		
 		window.addEventListener('locationchange', function(){
 			location.reload();
