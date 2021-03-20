@@ -71,7 +71,7 @@
 					else
 						items.push("<div class=\"responsive\"><div class=\"gallery\" style=\"position:relative;top:0;left:0;\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
 				});
-				items.sort((a, b) => (a.name < b.name) ? 1 : (a.name === b.name) ? ((a.page < b.page) ? 1 : -1) : -1 )
+				items.sort((a, b) => (a.name > b.name) ? 1 : (a.name === b.name) ? ((a.page > b.page) ? 1 : -1) : -1 )
 				$("div[data=items]").append(items.join(""));
 			}	
 		});
