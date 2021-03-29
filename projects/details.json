@@ -1,10 +1,10 @@
 { 
 	"tools" : [{
 		"display" : true,
-		"lastUpdated" : "March 18, 2021 22:04:00 CDT",
+		"lastUpdated" : "March 28, 2021 22:04:00 CDT",
 		"page" : "InventoryInventor",
 		"name" : "Inventory Inventor",
-		"image" : "/images/none.png",
+		"image" : "/images/inventoryinventor.png",
 		"summary" : "Make inventories fast with Inventory Inventor! With it, you can create inventories with plenty of toggles, all managed by a single Expression Parameter! <i>(Disclamer: You can choose to use more parameters if you want to save the state of items in the Inventory.)</i> This tool is meant for usage with Unity when creating Avatars for VRChat.",
 		"features" : [
 			"Presets for Saving Inventory Configurations", 
@@ -15,10 +15,10 @@
 		"status" : "Completed",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "https://github.com/Joshuarox100/VRC-Inventory-Inventor/releases/download/v1.2.0/Inventory.Inventor.1.2.0.unitypackage",
-			"name" : "Inventory.Inventor.1.2.0.unitypackage",
-			"version" : "1.2.0",
-			"size" : "695 KB",
+			"file" : "https://github.com/Joshuarox100/VRC-Inventory-Inventor/releases/download/v1.2.1/Inventory.Inventor.1.2.1.unitypackage",
+			"name" : "Inventory.Inventor.1.2.1.unitypackage",
+			"version" : "1.2.1",
+			"size" : "706 KB",
 			"supports" : "Unity 2018.4.20f1 (Must have VRCSDK3)",
 			"contains" : [ 
 				"Editor Scripts", 
@@ -72,7 +72,7 @@
 		"status" : "Completed",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "/images/animatedshader.gif",
+			"file" : "https://github.com/Joshuarox100/Unity-2018.4-Shaders/raw/main/Downloads/Animated_Shader.unitypackage",
 			"name" : "Animated_Shader.unitypackage",
 			"version" : "1.0.0",
 			"size" : "1.19 MB",
@@ -98,7 +98,7 @@
 		"status" : "Completed",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "/images/revolvingfade.gif",
+			"file" : "https://github.com/Joshuarox100/Unity-2018.4-Shaders/raw/main/Downloads/Revolving_Fade.unitypackage",
 			"name" : "Revolving_Fade.unitypackage",
 			"version" : "1.0.0",
 			"size" : "310 KB",
@@ -124,7 +124,7 @@
 		"status" : "Archived",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "/images/minesweeper.gif",
+			"file" : "https://github.com/Joshuarox100/old-projects/raw/main/Games/Minesweeper/Download/Minesweeper.zip",
 			"name" : "Minesweeper.zip",
 			"version" : "0.8.4",
 			"size" : "38.6 MB",
