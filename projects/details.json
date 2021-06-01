@@ -1,7 +1,7 @@
 { 
 	"tools" : [{
 		"display" : true,
-		"lastUpdated" : "March 28, 2021 20:50:00 CDT",
+		"lastUpdated" : "June 1, 2021 00:10:00 CDT",
 		"page" : "InventoryInventor",
 		"name" : "Inventory Inventor",
 		"image" : "/images/inventoryinventor.png",
@@ -15,9 +15,9 @@
 		"status" : "Completed",
 		"hasDownload" : true,
 		"fileDetails" : {
-			"file" : "https://github.com/Joshuarox100/VRC-Inventory-Inventor/releases/download/v1.2.1/Inventory.Inventor.1.2.1.unitypackage",
-			"name" : "Inventory.Inventor.1.2.1.unitypackage",
-			"version" : "1.2.1",
+			"file" : "https://github.com/Joshuarox100/VRC-Inventory-Inventor/releases/download/v1.2.4/Inventory.Inventor.1.2.4.unitypackage",
+			"name" : "Inventory.Inventor.1.2.4.unitypackage",
+			"version" : "1.2.4",
 			"size" : "706 KB",
 			"supports" : "Unity 2018.4.20f1 (Must have VRCSDK3)",
 			"contains" : [ 
