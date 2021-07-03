@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<script src="/scripts/includes.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="personal, Unity shaders, downloads, information, Joshuarox100, JoshuaB57">
+		<meta name="description" content="Personal site with some of my projects and info">
+		<meta name="author" content="Joshuarox100">
+		<title>Joshuarox100</title>
+		<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet'>
+		<link rel="stylesheet" href="/styles.css">
+		<link rel="icon" href="/images/avatar.png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			history.pushState = ( f => function pushState(){
+				var ret = f.apply(this, arguments);
+				window.dispatchEvent(new Event('pushstate'));
+				window.dispatchEvent(new Event('locationchange'));
+				return ret;
+			})(history.pushState);
+
+			history.replaceState = ( f => function replaceState(){
+				var ret = f.apply(this, arguments);
+				window.dispatchEvent(new Event('replacestate'));
+				window.dispatchEvent(new Event('locationchange'));
+				return ret;
+			})(history.replaceState);
+
+			window.addEventListener('popstate',()=>{
+				window.dispatchEvent(new Event('locationchange'))
+			});
+		});
+		</script>
+	</head>
+	<script>
+		var content = [];
+		var projects = [];
+		
+		$.holdReady(true);
+		$.getJSON( "/projects/details.json", function( data ) {
+			var groups = [];
+			$.each( data, function( i, group ) {
+				groups.push(group.sort((a, b) => (new Date(a.lastUpdated).getTime() > new Date(b.lastUpdated).getTime()) ? 1 : (new Date(a.lastUpdated).getTime() === new Date(b.lastUpdated).getTime()) ? ((a.name < b.name) ? 1 : -1) : -1 ));
+			});
+			$.each( groups, function( index, group ) {
+				var items = [];
+				$.each( group, function( index, project ) {
+					if (index > 2)
+						return false;
+					else if (!project.display)
+						return true;
+					
+					if (project.status == "WIP")
+						items.push("<div class=\"responsive\"><div class=\"gallery\" style=\"position:relative;top:0;left:0;\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"><img class=\"overlay\" src=\"/images/wip.png\" alt=\"WIP\" width=\"600\" height=\"400\" style=\"position:absolute;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else if (project.status == "Hold")
+						items.push("<div class=\"responsive\"><div class=\"gallery\" style=\"position:relative;top:0;left:0;\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"><img class=\"overlay\" src=\"/images/hold.png\" alt=\"On Hold\" width=\"600\" height=\"400\" style=\"position:absolute;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else if (project.status == "Archived")
+						items.push("<div class=\"responsive\"><div class=\"gallery\" style=\"position:relative;top:0;left:0;\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"><img class=\"overlay\" src=\"/images/archived.png\" alt=\"Archived\" width=\"600\" height=\"400\" style=\"position:absolute;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+					else
+						items.push("<div class=\"responsive\"><div class=\"gallery\" style=\"position:relative;top:0;left:0;\"><a href=\"/projects/#" + project.page + "\"><img class=\"preview\" src=\"" + project.image + "\" alt=\"" + project.name + "\" width=\"600\" height=\"400\" style=\"position:relative;top:0;left:0;\"></a><div class=\"desc\">" + project.name + "</div></div></div>");
+				});
+				projects.push(items.reverse());
+			});
+			$.holdReady(false);
+		});
+		
+		$(document).ready(function(){
+			var featured = [projects[0][0], projects[1][0], projects[2][0]];
+			$("div[data=featured]").append(featured.join(""));
+			$("div[data=tools]").append(projects[0].join(""));
+			$("div[data=shaders]").append(projects[1].join(""));
+			$("div[data=games]").append(projects[2].join(""));
+			
+			var getChild = $("#menu-content").children();
+			getChild.each(function(i,v){
+				content.push(($(v).data('menu-content')));
+			})
+			
+			var hash = location.hash.replace('#', '');
+			if (hash != "" && content.includes(hash))
+				showContent(hash);
+			else
+			{
+				location.href = '#home';
+				showContent('home');
+			}
+		});
+		
+		window.addEventListener('locationchange', function(){
+			var hash = location.hash.replace('#', '');
+			if (hash != "" && content.includes(hash))
+				showContent(hash);
+			else
+			{
+				location.href = '#home';
+				showContent('home');
+			}
+		})
+		
+		function showContent(type) {
+		  $.each(content, function(i, v){
+			$('div[data-menu-content='+v+']').hide();
+			if (v == type && !$('li[data-menu-content='+v+']').hasClass("active"))
+				$('li[data-menu-content='+v+']').addClass("active");
+			else if (v != type && $('li[data-menu-content='+v+']').hasClass("active"))
+				$('li[data-menu-content='+v+']').removeClass("active");
+		  });
+		  $('div[data-menu-content='+type+']').show();
+		  document.title = type.charAt(0).toUpperCase() + type.slice(1);
+		}
+	</script>
+	<body bgcolor="#000000">
+		<div w3-include-html="/sections/header.html"></div>
+		
+		<nav>
+			<ul>
+				<li data-menu-content="home"><a href="#home" class="menu-btn">Home</a></li
+				><li data-menu-content="about"><a href="#about" class="menu-btn">About</a></li
+				><li data-menu-content="projects"><a href="#projects" class="menu-btn">Projects</a></li
+				><li data-menu-content="contact"><a href="#contact" class="menu-btn">Contact</a></li>
+				<li class="dropdown" style="width:55px;padding:0px;float:right;">
+				<p style="margin:auto;padding:9px;;text-align:center"><img src="/images/menu.png" alt="Menu" style="width:auto;height:36px;border:0;vertical-align:middle"></p>
+				<div class="dropdown-content">
+					<ul>
+					<a class="dropdown-content" href="https://twitter.com/Joshuarox100" target="_blank"><img src="/images/twitter.png" alt="Twitter" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+					<a class="dropdown-content" href="https://www.twitch.tv/joshuarox100hd" target="_blank"><img src="/images/twitch.png" alt="Twitch" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+					<a class="dropdown-content" href="https://www.youtube.com/user/Joshuarox100" target="_blank"><img src="/images/youtube.png" alt="YouTube" style="vertical-align:middle;width:auto;height:26px;border:0;display:inline-block;"></a>
+					</ul>
+				</div>
+				</li>
+			</ul>
+		</nav>
+		
+		<div class="menu-content" id="menu-content">
+			<div data-menu-content="home" style="display: none;">
+				<section style="z-index:0">
+					<br>
+					<div class="alttextbox" style="max-width:1000px;">
+						<p style="vertical-align:middle;display:inline-block;min-width:300px;max-width:59%;">Welcome to my website! Here you can find some general information about who I am and what I do, in addition to some of my projects and several other things I make in my free time. Enjoy your stay!</p>
+						<img src="/images/character.png" alt="Character" style="vertical-align:middle;margin:auto;display:inline-block;min-width:300px;max-width:39%;align:right;">
+					</div>
+					<br>
+				</section>
+
+				<section>
+					<div data="featured" style="margin:auto;text-align:center;">
+					</div>
+					<div class="clearfix"></div>
+				</section>
+			</div>		
+			<div data-menu-content="about" style="display: none;">
+				<section>
+					<br>
+					<div class="alttextbox" style="max-width:900px">
+						<p style="margin:auto;padding:20px 0;max-width:750px;"><strong>Hi, I'm Joshua!</strong><br><br>I'm currently a full-time college student heavily invested into the Computer Science field, specifically regarding Programming and Virtual Reality.</p>
+					</div>
+					<br>
+					<div style="text-align:center;margin:0 20px;">
+						<div class="textbox" style="display:inline-block;min-width:375px;max-width:49%;min-height:375px;vertical-align:top;border-width:5px;">
+							<p style="min-width:300px;max-width:500px"><b>Brief History</b><br><br>I was three when I first touched a game controller. Since then, I have fell in love with video games and the process that goes into creating them. It wasn't until the beginning of 2017 when I first got my Windows Mixed Reality Headset and Controllers that I fell in love with the idea of Virtual Reality games. I later invested some more money into VR gear, specifically the Valve Index, Knuckles, and some Full-Body Trackers.</p>
+						</div>
+						<div class="textbox" style="display:inline-block;min-width:375px;max-width:49%;min-height:375px;vertical-align:top;border-width:5px;">
+							<p style="min-width:300px;max-width:500px"><b>Hobbies and Interests</b><br><br>In my free time, I usually try and find random little things to do. More often than not that ends up just being random YouTube videos of niche topics. But when it's not, I'll either be 3D Modeling, working on something in Unity, looking at code snippits, or playing games. I also frequently listen to music, usually Pop or Alternative.</p>
+						</div>
+					</div>
+				</section>
+			</div>		
+			<div data-menu-content="projects" style="display: none;">
+				<section>
+					<br>
+					<div class="textbox" style="max-width:900px">
+						<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>Tools</strong></p>
+					</div>
+					<br>
+					<div data="tools" style="margin:auto;text-align:center;">
+					</div>
+					<div class="clearfix"></div>
+					<p style="margin:auto;padding:20px 0;font-size:24px;max-width:750px;text-align:center;"><a href="/pages/#tools" style="color:white;text-decoration:none;">View More!</a></p>
+				</section>
+
+				<section>
+					<br>
+					<div class="textbox" style="max-width:900px">
+						<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>Shaders</strong></p>
+					</div>
+					<br>
+					<div data="shaders" style="margin:auto;text-align:center;">
+					</div>
+					<div class="clearfix"></div>
+					<p style="margin:auto;padding:20px 0;font-size:24px;max-width:750px;text-align:center;"><a href="/pages/#shaders" style="color:white;text-decoration:none;">View More!</a></p>
+				</section>
+
+				<section>
+					<br>
+					<div class="textbox" style="max-width:900px">
+						<p style="margin:auto;padding:20px 0;font-size:48px;max-width:750px;"><strong>Games</strong></p>
+					</div>
+					<br>
+					<div data="games" style="margin:auto;text-align:center;">
+					</div>
+					<div class="clearfix"></div>
+					<p style="margin:auto;padding:20px 0;font-size:24px;max-width:750px;text-align:center;"><a href="/pages/#games" style="color:white;text-decoration:none;">View More!</a></p>
+				</section>
+			</div>
+			<div data-menu-content="contact" style="display: none;">
+				<section>
+					<br>
+					<div class="alttextbox" style="max-width:900px">
+						<p style="margin:auto;padding:20px 0;max-width:750px;text-align:left;"><strong><u>Email</u></strong><br>General: mail@joshuarox100.com<br>Business: business@joshuarox100.com
+						</p>
+						<p style="margin:auto;padding:20px 0;max-width:750px;text-align:left;"><strong><u>Social</u></strong><br>Steam: Joshuarox100<br>Discord: Joshuarox100#5024
+						</p>
+					</div>
+				</section>
+			</div>
+		</div>
+		
+		<div w3-include-html="/sections/footer.html"></div>
+		
+		<script>
+		includeHTML();
+		</script>
+	</body>
+</html>
